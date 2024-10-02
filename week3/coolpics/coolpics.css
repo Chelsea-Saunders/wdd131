@@ -17,7 +17,6 @@ body {
     font-size: 1.2em;
     background-color: #ebe7ee;
     color: var(--text-dark);
-    /* width: 100%; */
 }
 img {
     display: grid;
@@ -85,11 +84,6 @@ footer {
     color: white;
     padding-left: 10%;
 }
-/* @media screen and (min-widthe: 100px) {
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-} */
 @media screen and (min-width: 500px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr);

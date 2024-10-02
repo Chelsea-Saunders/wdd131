@@ -1,12 +1,5 @@
 
 
-const menuButton = document.getElementById("menu");
-const dropdown = document.querySelector(".dropdown");
-
-menuButton.addEventListener("click", () => {
-    dropdown.menuButton.toggle("show");
-})
-
 function checkOrentation() {
     if (window.innerWidth > window.innerHeight) {
         //landscape mode 
