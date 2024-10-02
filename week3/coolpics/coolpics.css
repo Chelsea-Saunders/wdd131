@@ -48,6 +48,7 @@ header {
     color: white;
     text-align: center;
     padding: 25px;
+    font-size: 40px;
 }
 header a {
     color: white;
@@ -57,10 +58,7 @@ header a {
     outline: none;
     border: none;
     color: white;
-    font-size: 22px;
-}
-#menu:hover {
-    color: aqua;
+    font-size: 40px;
 }
 nav {
     display: flex;
@@ -73,11 +71,8 @@ nav {
     padding: 0;
 }
 .dropdown li {
-    padding: 3px;
-    font-size: 20px
-}
-.dropdown a:hover {
-    color: aqua;
+    padding: 5px;
+    font-size: 30px
 }
 footer {
     background-color: var(--primary-color);
@@ -87,6 +82,9 @@ footer {
 @media screen and (min-width: 500px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .dropdown {
+        display: none;
     }
 }
 @media screen and (min-width: 900px) {
@@ -105,5 +103,12 @@ footer {
     .dropdown li {
         display: inline;
         padding: 0;
+    }
+}
+@media screen and (min-width: 900px) and (orientation: landscape) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        padding-left: 200px;
+        padding-right: 200px;
     }
 }
