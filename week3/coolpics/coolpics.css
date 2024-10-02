@@ -1,6 +1,5 @@
 
 
-
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
 :root {
     --primary-color: #52489c;
@@ -10,78 +9,107 @@
     --primary-font: Arial, Helvetica, sans-serif;
     --secondary-font: "Mooli", sans-serif;
 }
+html {
+    width: 100%;
+}
 body {
     font-family: var(--primary-font);
     font-size: 1.2em;
-    background-color: #dbd6ff;
-    width: 100%;
-}
-h1, h2 {
-    font-family: var(--secondary-font);
-}
-header {
-    padding: 25px;
-}
-header, a {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-}
-#menu {
-    background-color: var(--primary-color);
-    outline: none;
-    border: none;
-    color: white;
-}
-a {
-    text-decoration: underline;
-}
-a:link
-a:visited {
-    color: var(--accent-color)
-}
-
-h2 {
-    text-align: center;
-    font-size: 25px;
+    background-color: #ebe7ee;
+    color: var(--text-dark);
+    /* width: 100%; */
 }
 img {
+    display: grid;
     max-width: 100%;
     width: 250px;
     height: 250px;
     object-fit: cover;
     border: 4px solid white;
     box-shadow: 5px 5px 5px #3d3c44;
-    display: grid;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+h1 {
+    font-family: var(--secondary-font);
+    display: flex;
+    justify-content: center;
+}
+h2 {
+    font-family: var(--secondary-font);
+    text-align: center;
+    font-size: 1em;
+}
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+header a {
+    color: white;
+}
+#menu {
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+}
+#menu:hover {
+    color: aqua;
+}
+nav {
+    display: flex;
+    justify-content: center;
+}
+.dropdown {
+    display: inline-block;
+    list-style: none; /*removes bullets from list*/
+    text-align: center;
+    padding: 0;
+}
+.dropdown li {
+    padding: 3px;
+    font-size: 20px
+}
+.dropdown a:hover {
+    color: aqua;
 }
 footer {
     background-color: var(--primary-color);
     color: white;
+    padding-left: 10%;
 }
-@media screen and (min-width: 700px) {
+/* @media screen and (min-widthe: 100px) {
     .gallery {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
-}
-@media screen and (min-width: 1000px) {
+} */
+@media screen and (min-width: 500px) {
     .gallery {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-@media(orientation: landscape) {
-    body {
-        width: 100%;
-        padding: 20px;
-        background-color: lightblue;
+@media screen and (min-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
     }
-}
-@media (orientation: portrait) {
-    body {
-        background-color: #dbd6ff;
+    #menu {
+        display: none;
+    }
+    .dropdown {
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        padding: 0;
+    }
+    .dropdown li {
+        display: inline;
+        padding: 0;
     }
 }
