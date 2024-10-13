@@ -80,12 +80,12 @@ nav ul {
     padding-left: 0;
     margin: 0;
 }
-nav ul.menuList li a {
+/* nav ul.menuList li a {
     text-align: center;
     font-size: 30px;
     padding: 25px;
     color: white;
-}
+} */
 #dropdown {
     list-style: none; /*removes bullets from list*/
     text-align: center;
@@ -105,7 +105,7 @@ main {
  /* .close-viewer {
 
  } */
- div.viewer {
+ /* div.viewer {
     display: grid;
     position: fixed;
     top:0;
@@ -129,7 +129,7 @@ main {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 5px;
-    cursor: pointer;
+    cursor: pointer; */
 }
 /* .img {
     grid-row: 2;
@@ -148,11 +148,11 @@ footer {
     .gallery {
         grid-template-columns: repeat(2, 1fr);
     }
-    nav ul {
+    /* nav ul {
         text-align: center;
         padding: 20px;
         margin: 0;
-    }
+    } */
     #dropdown {
         text-align: center;
     }
