@@ -29,6 +29,8 @@ h1 {
     font-weight: normal;
     text-align: center;
     margin: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 .skiptocontent{  /* .skiptocontent is hidden by setting position: absolute and moving it off-screen (top: -1000px; left: -1000px;). */
     position: absolute;
@@ -52,6 +54,8 @@ h1 {
     grid-template-columns: 1fr auto;
     align-items: center;
     padding: 10px;
+    /* max-width: 100%;
+    margin: 0 auto; */
 }
 .main-nav {
     list-style: none;
