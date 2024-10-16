@@ -97,6 +97,7 @@ h1 {
     gap: 20px;
     font-size: .7em;
     padding: 10px;
+    padding-top: 40px;
 }
 .text {
     grid-column: 1/2;
