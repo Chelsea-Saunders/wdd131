@@ -10,13 +10,12 @@ menuButton.addEventListener("click", function() {
 
 function handleResize() {
     const width = window.innerWidth;
+    // const menu = document.querySelector("nav");
 
-    const menu = document.querySelector("menu");
-
-    if (width > 1000) {
-        menu.classList.remove("hide");
+    if (width >= 900) {
+        dropdown.classList.remove("hide");
     } else {
-        menu.classList.add("hide");
+        dropdown.classList.add("hide");
     }
 }
 handleResize();
@@ -25,71 +24,71 @@ window.addEventListener("resize", handleResize);
 function viewTemplate(pic, alt) {
     return `<div class="viewer">
     <button class="close-viewer">X</button>
-    <img src="${pic}" alt={alt}>
-    </div>`;
-}
-const closeButton = document.querySelector(".close-viewer");
-
-closeButton.addEventListener("click", closeViewer);
-
-// //get modal element
-// const modal = document.getElementById("viewer");
-
-// //get button that opent the modal
-// const btn = document.getElementById("open-viewer");
-
-// //get the <span> element that closes the modal
-// const span = document.getElementsByClassName("close")[0];
-
-// //when the user clicks the button, open the modal
-// btn.onclick = function() {
-//     modal.style.diaplay = "block";
-// }
-// //when the user clicks on the <span> (x), close the modal
-// span.onclick = function() {
-//     modal.style.display = "none";
-// }
- 
-//when the user clicks anywhere outside the modal, closes it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-function viewTemplate(pic, alt) {
-    return `div class="viewer">
-        <button class = "close-viewer">X</button>
-        <img src="${pic}" alt="${alt}">
+    <img src="${pic}" alt="${alt}" class="modal-img">
     </div>`;
 }
 
 function viewHandler(event) {
     const clickedElement = event.target;
 
+    //check if the clicked element is an image
     if (clickedElement.tagName.toLowerCase() === "img") {
         const src = clickedElement.getAttribute("src");
-        const fullSrc = `${src.split("-")[0]}-fullSrc.jpt`;
 
+        //change the source to match the full-size image
+        const fullSrc = `${src.split("-")[0]}-full.jpeg`;
+
+        //create a viewer modal dynamically
         const viewer = document.createElement("div");
         viewer.classList.add("viewer");
         viewer.innerHTML = viewTemplate(fullSrc, clickedElement.alt);
 
-        document.body.insertAdjacentHTML("afterbegin", viewer.outterHMTL);   
+        //insert the viewer modal into the body
+        document.body.appendChild(viewer);   
 
+        // add event listener to the newly created close button
         const newCloseButton = viewer.querySelector(".close-viewer");
         newCloseButton.addEventListener("click", closeViewer);
+
+        //close modal when clicking outside image
+        viewer.addEventListener("click", function(event) {
+            if (event.target === viewer) {
+                closeViewer();
+            }
+        });
     }
 }
 
+//close the modal when clicking the close button
+function closeViewer() {
+    const viewer = document.querySelector(".viewer");
+    if (viewer !== null) {
+        viewer.remove();
+    }
+}
+
+// attach the viewhandler function to gallery section
 const gallerySection = document.querySelector(".gallery");
 gallerySection.addEventListener("click", viewHandler);
 
-function closeViewer() {
-    const viewer = document.querySelector(".close-viewer");
-    if (viewer !== null) {
-        viewer.parentNode.remove();
-    }
+const modal = document.getElementById("viewer");
+const btn = document.getElementById("open-viewer");
+
+if (btn) {
+    btn.onclick = function() {
+        modal.style.display = "block";
+    };
 }
-const gallery = document.querySelector(".gallery");
-gallery.addEventListener("click", viewHandler);
+
+const span = document.getElementsByClassName("close")[0];
+if (span) {
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+}
+
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
