@@ -1,5 +1,22 @@
 
 
+// getGradeArray () {
+
+// }
+
+// function clickHandler() {
+//     const gradeArray = getGradeArray() {
+
+//     };
+// };
+// document
+//     .querySelector("submitButton");
+//     .addEventListener("click", clickHandler);
+
+
+// const GPA = convertLetterToNumber =
+
+
 //function to get grades and return them in uppercase
 function getGrades(input) {
     let grades = input.split(",").map(grade => grade.trim().toUpperCase()); //.split splits input up by commas. .map iterates over each grade and removes any extra using the trim() then converts all letter grades to upper case.

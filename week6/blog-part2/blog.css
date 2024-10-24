@@ -92,27 +92,65 @@ h1 {
     color:#EBBAB9;
 }
 .container {
-    display: grid;
-    grid-template-columns: 1fr, 2fr, 1fr;
+    display: grid !important;
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    grid-template-rows: repeat(1fr, 100);
     gap: 20px;
     font-size: .7em;
     padding: 10px;
     padding-top: 40px;
+    align-items: start;
 }
+img {
+    max-width: 80%;
+    height: 180px;
+}
+.book img {
+    display: grid;
+    margin: 0 auto;
+    max-width: 50%;
+    height: auto;
+}
+.book h3, .book p {
+    text-align: left;
+}
+.book {
+    display: grid;
+    grid-column: 2/3;
+    place-items: center;
+    text-align: left;
+}
+article {
+    padding: 20px;
+}
+/* .one {
+    display: grid;
+    grid-template-rows: repeat(1fr, 100);
+    grid-row: 1/100;
+}
+.two {
+    display: grid;
+    grid-row: 2/100;
+} */
 .text {
     grid-column: 1/2;
+    /* grid-row: 1/100; */
     text-align: right;
     border-right: 1px solid gray;
-    padding: 10px;
+    padding: 5px;
     padding-right: 25px;
     padding-left: 90px;
     font-size: 1em;
 }
-.book {
-    grid-column: 2/3;
+nav.dropdown {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column: 3/4;
+    gap: 20px;
 }
 .dropdown {
-    grid-column: 3/4;
+    display: grid !important;
+    grid-column: 3/4!important;
     border: 1px solid gray;
     padding: 10px;
     justify-content: end;
@@ -138,3 +176,91 @@ label {
     text-align: right;
     padding: 5px;
 }
+
+
+
+
+/* .container {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(1fr, 100);
+    gap: 20px;
+    font-size: .7em;
+    padding: 10px;
+    padding-top: 40px;
+    align-items: start;
+}
+img {
+    max-width: 80%;
+    height: 180px;
+}
+.book img {
+    display: grid;
+    margin: 0 auto;
+    max-width: 50%;
+    height: auto;
+}
+.book h3, .book p {
+    text-align: left;
+}
+.book {
+    display: grid;
+    grid-column: 2/3;
+    place-items: center;
+    text-align: left;
+}
+article {
+    padding: 20px;
+}
+.text {
+    grid-column: 1/2;
+    text-align: right;
+    border-right: 1px solid gray;
+    padding: 5px;
+    padding-right: 25px;
+    padding-left: 90px;
+    font-size: 1em;
+}
+nav.dropdown {
+    display: grid;
+    grid-column: 3/4;
+    gap: 20px;
+}
+.dropdown {
+    display: grid;
+    grid-column: 3/4;
+    border: 1px solid gray;
+    padding: 10px;
+    justify-content: end;
+    margin-right: 50px;
+}
+.dropdown ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.dropdown li {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 50px 100px;
+    list-style: none;
+    padding: 0;
+    align-items: center;
+    margin: 10px 0;
+}
+select {
+    padding: 5px;
+    font-size: .7em;
+    width: 100px;
+}
+.dropdown label {
+    text-align: right;
+}
+.dropdown select {
+    width: 100%;
+    padding: 5px;
+    font-size: .7em;
+} */

@@ -3,11 +3,10 @@
 //  arrays.js
 const steps = ["one", "two", "three"];
 function listTemplate(step) {
-    return `<ul>${step}</ul>`;
+    return `<li>${step}</li>`;
 }
-
 //Activity 1 - Map
-const stepsHtml = steps.map(listTemplate);// use map to convert the list from strings to HTML
+const stepsHtml = steps.map(listTemplate); // use map to convert the list from strings to HTML
 document.querySelector("#myList").innerHTML = stepsHtml.join("");// set the innerHTML
 
 //Activity 2 - Map
