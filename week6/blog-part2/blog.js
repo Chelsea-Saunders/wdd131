@@ -73,25 +73,25 @@ const dropdownOptions = [
     }
 ]
 
-const dropdownContainer = document.querySelector(".dropdown");
-const addDropdown = (optionTitle, optionOne, optionTwo, optionThree, optionFour, optionFive, optionSix, optionSeven, optionEight) {
-    const newDropdown = document.createElement("ul");
-    newDropdown.classList.add('dropdown');
+// const dropdownContainer = document.querySelector(".dropdown");
+// const addDropdown = (optionTitle, optionOne, optionTwo, optionThree, optionFour, optionFive, optionSix, optionSeven, optionEight) {
+//     const newDropdown = document.createElement("ul");
+//     newDropdown.classList.add('dropdown');
 
-    newDropdown.innerHTML = `
-    <li>${optionTitle}</li>
-    <li>${optionOne}</li>
-    <li>${optionTwo}</li>
-    <li>${optionThree}</li>
-    <li>${optionFour}</li>
-    <li>${optionFive}</li>
-    <li>${optionSix}</li>
-    <li>${optionSeven}</li>
-    <li>${optionEight}</li>
-    `;
+//     newDropdown.innerHTML = `
+//     <li>${optionTitle}</li>
+//     <li>${optionOne}</li>
+//     <li>${optionTwo}</li>
+//     <li>${optionThree}</li>
+//     <li>${optionFour}</li>
+//     <li>${optionFive}</li>
+//     <li>${optionSix}</li>
+//     <li>${optionSeven}</li>
+//     <li>${optionEight}</li>
+//     `;
 
-    dropdownContainer.appendChild(newDropdown);
-}
+//     dropdownContainer.appendChild(newDropdown);
+// }
 
 //select the container where the article will be inserted
 const container = document.querySelector(".book");
@@ -136,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         addBook(bk.title, bk.description, bk.imgSrc, bk.imgAlt);
         addDate(bk.date, bk.ages, bk.genre, bk.stars);
     })
-    dropdown.forEach(dd => {
-        addDropdown(dD.optionTitle, dD.optionOne, dD.optionTwo, dD.optionThree, dD.optionFour, dD.optionFive, dD.optionSix, dD.optionSeven, dD.optionEight)
-    })
+    // dropdown.forEach(dd => {
+    //     addDropdown(dD.optionTitle, dD.optionOne, dD.optionTwo, dD.optionThree, dD.optionFour, dD.optionFive, dD.optionSix, dD.optionSeven, dD.optionEight)
+    // })
 });
 
 // const dropdown = document.querySelector(".dropdown");
