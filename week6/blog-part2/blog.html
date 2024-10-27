@@ -22,104 +22,26 @@
                 <li><a href="" class="about">About</a></li>
                 <li><a href="" class="archive">Archive</a></li>
                 <li><a href="" class="search">Search</a></li>
-                <!-- <button type="submit">Search</button> -->
-                    <!-- <input type="text" name="search" id="search" placeholder="Search for a book"> -->
-                    <!-- <p>filter form will go here</p> -->
-            </ul>
+                </ul>
         </nav>
     </header>
     <main class="mainContainer">
-        <div class="textContainer">
-            <div id="1">
-                <p>July 5, 2022</p>
-                <p>10-14</p>
-                <p>Fantasy</p>
-                <p>⭐⭐⭐⭐</p>
-            </div>
-            <div id="2">
-                <p>December 12, 2021</p>
-                <p>12-16</p>
-                <p>Fantasy</p>
-                <p>⭐⭐⭐⭐</p>
-            </div>
-            <div id="3">
-                <p>Feb 12, 2022</p>
-                <p>12-16</p>
-                <p>Fantasy</p>
-                <p>⭐⭐⭐⭐⭐</p>
+        <div class="column-2">
+            <div class="textContainer">
+                <article id="four"></article>
+                <article id="five"></article>
+                <article id="six"></article>
             </div>
         </div>
-        <div class="bookContainer">
-            <div id="one">
-                <h2>Septimus Heap Book One: Magyk<h2>
-                    <img src="images/book-title.png" alt="book cover for Septimus Heap Book 1">
-                    <p>If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you.</p>
+        <div class="column-1">
+            <div class="bookContainer">
+                <article id="one"></article>
+                <article id="two"></article>
+                <article id ="three"></article>
             </div>
-            <div id="two">
-                <h2>Magnus Chase Book One: Sword of Summer</h2>
-                    <img src="https://books.google.com/books/content/images/frontcover/xWuyBAAAQBAJ?fife=w300" altImg="Book cover for Magnus Chase book 1">
-                    <p>The anticipated new novel by Rick Riordan. After Greek mythology (Percy Jackson), Greek/Roman (Heroes of Olympus), and Egyptian (Kane Chronicles), Rick decides to try his hand with Norse Mythology, and the end result is good.</p>
-    
-            </div>
-            <div id ="three">
-                <h2>Belgariad Book One: Pawn of Prophecy</h2>
-                    <img src="images/PawnOfProphecy.png" altImg="Book cover for Pawn of Prophecy">
-                    <p>A fierce dispute among the Gods and the theft of a powerful Orb leaves the World divided into five kingdoms. Young Garion, with his "Aunt Pol" and an elderly man calling himself Wolf --a father and daughter granted near-immortality by one of the Gods -- set out on a complex mission.</p>
-            </div>
+        </div>   
         </div>
-        <div class="dropdownContainer">
-            <div class="dropdown">
-                <ul>
-                    <li>
-                        <label for="sort">Sort:</label>
-                        <select id="sort name="sort">
-                            <option value=""></option>
-                            <option value="default">Default</option>
-                            <option value="assending">Assending</option>
-                            <option value="desending">Desending</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="age">Age:</label>
-                        <select id="age" name="age">
-                            <option value=""></option>
-                            <option value="all-ages">All Ages</option>
-                            <option value="under-10">Under 10</option>
-                            <option value="10-12">10-12</option>
-                            <option value="12-16">12-16</option>
-                            <option value="16-18">16-18</option>
-                            <option value="adults">Adults</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="genre">Genre</label>
-                        <select>
-                            <option value=""></option>
-                            <option value="history">History</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="mystery">Mystery</option>
-                            <option value="sci-fi">Sci Fi</option>
-                            <option value="non-fiction">Non-Fiction</option>
-                            <option value="biography">Biography</option>
-                            <option value="autobiography">Autobiography</option>
-                            <option value="romance">Romance</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="rating">Rating</label>
-                        <select>
-                            <option value=""></option>
-                            <option value="1-star">1 Star</option>
-                            <option value="2-star">2 Star</option>
-                            <option value="3-star">3 Star</option>
-                            <option value="4-star">4 Star</option>
-                            <option value="5-star">5 Star</option>
-                        </select>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div class="dropdownContainer"></div>
     </main>
 </body>
 <footer></footer>
@@ -135,6 +57,155 @@
     
 <!-- chat gpt link for questions ask on this assignment when I didn't know what to do
  https://chatgpt.com/share/670ffe10-e270-800b-b1e7-c83b6f20eaba -->
+
+
+
+
+
+
+
+ <!-- <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <meta name="description" content="This is a blog on book reviews">
+     <meta author="Chelsea Saunder">
+     <link rel="stylesheet" href="blog.css">
+     <script src="blog.js" defer></script>
+ </head>
+ <body>
+     <header>
+         <div class="skiptocontent" id="maincontent">
+             <a href="#maincontent">skip to main content</a>
+         </div>
+         <h1>Kids Read for Fun</h1>
+         <nav class="header-container">
+             <ul class="main-nav">
+                 <li><a href="" class="about">About</a></li>
+                 <li><a href="" class="archive">Archive</a></li>
+                 <li><a href="" class="search">Search</a></li>
+                 <button type="submit">Search</button> 
+                     <input type="text" name="search" id="search" placeholder="Search for a book"> 
+                     <p>filter form will go here</p> 
+             </ul>
+         </nav>
+     </header>
+     <main class="mainContainer">
+         <div class="column-2">
+             <div class="textContainer">
+                 <article id="four">
+                     <p>July 5, 2022</p>
+                     <p>10-14</p>
+                     <p>Fantasy</p>
+                     <p>⭐⭐⭐⭐</p> 
+                 </article>
+                  <article id="four">
+                     <p>July 5, 2022</p>
+                     <p>10-14</p>
+                     <p>Fantasy</p>
+                     <p>⭐⭐⭐⭐</p>
+                 </article> 
+                 <article id="five">
+                      <p>December 12, 2021</p>
+                     <p>12-16</p>
+                     <p>Fantasy</p>
+                     <p>⭐⭐⭐⭐</p> 
+                 </article>
+                 <article id="six">
+                     <p>Feb 12, 2022</p>
+                     <p>12-16</p>
+                     <p>Fantasy</p>
+                     <p>⭐⭐⭐⭐⭐</p>
+                 </article>
+             </div>
+         </div>
+         <div class="column-1">
+             <div class="bookContainer">
+                 <article id="one">
+                      <h2>Septimus Heap Book One: Magyk<h2>
+                         <img src="images/book-title.png" alt="book cover for Septimus Heap Book 1">
+                         <p>If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you.</p> 
+                 </article>
+                 <article id="two">
+                      <h2>Magnus Chase Book One: Sword of Summer</h2>
+                         <img src="https://books.google.com/books/content/images/frontcover/xWuyBAAAQBAJ?fife=w300" altImg="Book cover for Magnus Chase book 1">
+                         <p>The anticipated new novel by Rick Riordan. After Greek mythology (Percy Jackson), Greek/Roman (Heroes of Olympus), and Egyptian (Kane Chronicles), Rick decides to try his hand with Norse Mythology, and the end result is good.</p>
+                 </article>
+                 <article id ="three">
+                      <h2>Belgariad Book One: Pawn of Prophecy</h2>
+                         <img src="images/PawnOfProphecy.png" altImg="Book cover for Pawn of Prophecy">
+                         <p>A fierce dispute among the Gods and the theft of a powerful Orb leaves the World divided into five kingdoms. Young Garion, with his "Aunt Pol" and an elderly man calling himself Wolf --a father and daughter granted near-immortality by one of the Gods -- set out on a complex mission.</p> 
+                 </article>
+             </div>
+         </div>
+         <div class="textContainer">
+             
+         </div>
+         <div class="dropdownContainer">
+             <article class="dropdown">
+                 <ul>
+                     <li>
+                         <label for="sort">Sort:</label>
+                         <select id="sort" name="sort">
+                             <option value=""></option>
+                             <option value="default">Default</option>
+                             <option value="assending">Assending</option>
+                             <option value="desending">Desending</option>
+                         </select>
+                     </li>
+                     <li>
+                         <label for="age">Age:</label>
+                         <select id="age" name="age">
+                             <option value=""></option>
+                             <option value="all-ages">All Ages</option>
+                             <option value="under-10">Under 10</option>
+                             <option value="10-12">10-12</option>
+                             <option value="12-16">12-16</option>
+                             <option value="16-18">16-18</option>
+                             <option value="adults">Adults</option>
+                         </select>
+                     </li>
+                     <li>
+                         <label for="genre">Genre</label>
+                         <select id="genre" name="genre">
+                             <option value=""></option>
+                             <option value="history">History</option>
+                             <option value="fantasy">Fantasy</option>
+                             <option value="mystery">Mystery</option>
+                             <option value="sci-fi">Sci Fi</option>
+                             <option value="non-fiction">Non-Fiction</option>
+                             <option value="biography">Biography</option>
+                             <option value="autobiography">Autobiography</option>
+                             <option value="romance">Romance</option>
+                             <option value="other">Other</option>
+                         </select>
+                     </li>
+                     <li>
+                         <label for="rating">Rating</label>
+                         <select id="rating" name="rating">
+                             <option value=""></option>
+                             <option value="1-star">1 Star</option>
+                             <option value="2-star">2 Star</option>
+                             <option value="3-star">3 Star</option>
+                             <option value="4-star">4 Star</option>
+                             <option value="5-star">5 Star</option>
+                         </select>
+                     </li>
+                 </ul>
+             </article>
+         </div>
+     </main>
+ </body>
+ <footer></footer>
+ </html> -->
+
+
+
+
+
+
 
  <!-- <!DOCTYPE html>
  <html lang="en">

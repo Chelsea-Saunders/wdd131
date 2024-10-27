@@ -48,7 +48,7 @@ h1 {
     display: grid;
     border: 1px solid gray;
     background-color: var(--dark-color);
-    justify-self: end;
+    /* justify-self: end; */
     grid-template-columns: 1fr auto;
     align-items: center;
     padding: 10px;
@@ -89,9 +89,21 @@ h1 {
 }
 .mainContainer {
     display: grid;
-    grid-template-columns: 1fr, 2fr, 1fr;
+    grid-template-columns: 1fr, 1fr;
     gap: 20px;
     font-size: .7rem;
+    padding: 10px;
+}
+.column-1 {
+    display: grid;
+    grid-row: auto;
+    gap: 20px;
+    padding: 10px;
+}
+.column-2{
+    display: grid;
+    grid-row: auto;
+    gap: 20px;
     padding: 10px;
 }
 .textContainer {
@@ -104,10 +116,12 @@ h1 {
     text-align: right;
     border-right: 1px solid gray;
 }
-/* #one {
-    border-right: 1px solid gray;
-    margin-bottom: 10px;
-} */
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
 .bookContainer{
     display: grid;
     grid-column: 2/3;
@@ -127,14 +141,16 @@ h1 {
     grid-column: 2/3;
 }
 h2 {
-    font-size: 2.5em;
+    font-size: 1.5rem;
     font-weight: normal;
 }
 img {
     height: 300px;
+    display: block;
+    margin: 0 auto;
 }
 .dropdownContainer {
-    /* display: grid; */
+    display: grid;
     grid-column: 3/4;
     gap: 20px;
     font-size: .9rem;
@@ -149,9 +165,11 @@ img {
     margin-right: 25px;
     width: 100%;
 }
-.dropdown ul {
-    /* list-style-type: none; */
-    /* padding: 0; */
+ul {
+    /* display: grid;
+    grid-column: 1/2; */
+    list-style-type: none;
+    padding: 0;
     margin: 0;
 }
 .dropdown li {
