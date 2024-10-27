@@ -148,3 +148,5 @@ function createDropdown() {
     document.querySelector(".dropdownContainer").innerHTML += dropdownContent;
 }
 createDropdown();
+
+// notes
