@@ -1,186 +1,184 @@
-
-
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Lato:400, 700,300");
 :root {
-    --primary-font: "Inconsolata";
-    --secondary-font: "lato";
-    --primary-color: #e3e3e3;
+  --primary-font: "Inconsolata";
+  --secondary-font: "lato";
+  --primary-color: #e3e3e3;
 }
 
 body {
-    background-color: white;
-    font-family: var(--primary-font);
-    position: relative;
-    text-transform: uppercase;
-    padding: 20px 0;
-    margin-left: 80px;
-    margin-top: 50px;
+  background-color: white;
+  font-family: var(--primary-font);
+  position: relative;
+  text-transform: uppercase;
+  padding: 20px 0;
+  margin-left: 80px;
+  margin-top: 50px;
 }
 .total {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
 p {
-    margin-top: 30px;
-    margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 /* .input-line-one {
     padding-left: 20px;
 } */
 .input-line-two {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
-.card-front, 
+.card-front,
 .card-back {
-    position: absolute;
-    background-color: var(--primary-color);
-    width: 400px;
-    height: 250px;
-    border-radius: 5px;
-    padding: 20px 30px 0;
-    box-sizing: border-box;
-    font-size: 10px;
-    letter-spacing: 1px;
-    font-weight: 300;
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  background-color: var(--primary-color);
+  width: 400px;
+  height: 250px;
+  border-radius: 5px;
+  padding: 20px 30px 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 .card-image {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    height: 55px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 55px;
 }
 #month-card {
-    width: 45% !important;
+  width: 45% !important;
 }
-.card-holder, 
+.card-holder,
 .expiration-container {
-    flex: 1;
-} 
+  flex: 1;
+}
 input.card-number {
-    width: 300px;
+  width: 300px;
 }
 .black {
-    width: 100%;
-    height: 55px;
-    background-color: black;
-    position: absolute;
-    right: 0;
+  width: 100%;
+  height: 55px;
+  background-color: black;
+  position: absolute;
+  right: 0;
 }
 card-button {
-    display: none;
+  display: none;
 }
 #year-card {
-    width: 45%;
-    float: right;
+  width: 45%;
+  float: right;
 }
 .card-container {
-    width: 60%;
-    display: inline-block;
-    margin: auto;
-    width: 500px;   
-    height: 300px;
-    position: relative;
+  width: 60%;
+  display: inline-block;
+  margin: auto;
+  width: 500px;
+  height: 300px;
+  position: relative;
 }
 input {
-    outline:none;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 0;
-    margin-bottom: 25px;
-    /* margin: 0 0 25px; */
-    color: black;
-    font-size: 12px;
-    font-family: var(--primary-font);
-    letter-spacing: 1px;
+  outline: none;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  /* margin: 0 0 25px; */
+  color: black;
+  font-size: 12px;
+  font-family: var(--primary-font);
+  letter-spacing: 1px;
 }
 #card-number {
-    width: 100%;
-    box-sizing: border-box;
+  width: 100%;
+  box-sizing: border-box;
 }
 .card-number {
-    width: 100%;
-    font-size: 12px;
+  width: 100%;
+  font-size: 12px;
 }
 label[for="card-number"] {
-    display: block;
-    padding-bottom: 8px;
-    letter-spacing: 1.5px;
-    font-weight: 400;
+  display: block;
+  padding-bottom: 8px;
+  letter-spacing: 1.5px;
+  font-weight: 400;
 }
 input#card-holder {
-    width: 100px;
+  width: 100px;
 }
 label[for="card-holder"] {
-    display: block;
-    margin: 0 auto 7px;
-    font-size: 12px;
-    font-weight: 400;
+  display: block;
+  margin: 0 auto 7px;
+  font-size: 12px;
+  font-weight: 400;
 }
 input#mm {
-    width: 50px;
+  width: 50px;
 }
 input#yy {
-    width: 50px;
+  width: 50px;
 }
 label[for="expiration"] {
-    display: flex;
-    position: relative;
-    margin-bottom: 8px;
-    font-size: 12px;
-    font-weight: 400;
+  display: flex;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 400;
 }
 .submit {
-    background-color: var(--primary-color);
-    position: relative;
-    left: 350px;
-    bottom: -305px;
-    width: 150px;
-    border-radius: 8px;
-    height: 42px;
-    font-size: 12px;
-    font-family: var(--primary-font);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 400;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
+  background-color: var(--primary-color);
+  position: relative;
+  left: 350px;
+  bottom: -305px;
+  width: 150px;
+  border-radius: 8px;
+  height: 42px;
+  font-size: 12px;
+  font-family: var(--primary-font);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
 }
 .submit:hover {
-    background-color: #000;
-    color: white;
+  background-color: #000;
+  color: white;
 }
 .card-back {
-    top: 40px;
-    right: 0;
-    z-index: -2;
+  top: 40px;
+  right: 0;
+  z-index: -2;
 }
 label[for="cvc"] {
-    position: absolute;
-    width: 100px;
-    right: -10px;
-    bottom: 45px;
-    box-sizing: border-box;
-    padding-bottom: 8px;
-    letter-spacing: 1.5px;
-    font-weight: 400;
-    font-size: 12px;
+  position: absolute;
+  width: 100px;
+  right: -10px;
+  bottom: 45px;
+  box-sizing: border-box;
+  padding-bottom: 8px;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  font-size: 12px;
 }
 input#cvc {
-    position: absolute;
-    box-sizing: border-box;
-    width: 75px;
-    right: 20px; 
-    bottom: -10px;
-    cursor: pointer;
-    text-transform: uppercase;
+  position: absolute;
+  box-sizing: border-box;
+  width: 75px;
+  right: 20px;
+  bottom: -10px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
