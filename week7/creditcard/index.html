@@ -1,0 +1,62 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreditCard</title>
+    <link rel="stylesheet" href="creditcard.css">
+    <script src="creditcard.js" defer></script>
+</head>
+    <body>
+        <form> 
+            <div class="card-container">
+                <div class="card-front">
+                    <div class="total">
+                        <p>TOTAL: $199</p>
+                    </div>
+                    
+                    <div class="card-img">
+                        <img
+                            class="card-image"
+                            src="images/favicon-initials.png"
+                            alt="Initials">
+                    </div>
+
+                    <div class="input-line-one">
+                        <div class="card-number">
+                            <label for="card-number">CARD NUMBER</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="1234-1234-1234-1234">
+                        </div>
+                    </div>
+
+                    <div class="input-line-two">
+                        <div class="card-holder">
+                            <label for="card-holder">CARD HOLDER</label>
+                            <input type="text" id="name-on-card" name="name-on-card" placeholder="Jane Doe">
+                        </div>
+    
+                        <div class="expiration-container">
+                            <label for="expiration">EXPIRATION</label>
+                            <input type="text" id="mm" name="mm" placeholder="MM">
+                            <input type="text" id="yy" name="yy" placeholder="YY">
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="card-back">
+                    <div class="black"></div>
+                    <label for="cvc">CVC/CVV</label>
+                    <input type="text" id="cvc" name="cvc" placeholder="xxx">
+                </div>
+                <button type="submit" class="submit">Submit</button>
+            </div>
+        </form>
+    </body>
+</html>
+
+<!-- chatGPT url to chat: https://chatgpt.com/c/6721227d-08f0-800b-9921-d9b06bdb3e81
+ it has images so i can't create a sharable link but i can sign in and go over what I learned -->
