@@ -126,7 +126,7 @@ input#mm {
 input#yy {
   width: 30px;
 }
-label[for="expiration"] {
+label[for="mm"] {
   display: flex;
   position: relative;
   margin-bottom: 8px;
