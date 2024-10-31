@@ -120,10 +120,10 @@ label[for="card-holder"] {
   font-weight: 400;
 }
 input#mm {
-  width: 50px;
+  width: 53px;
 }
 input#yy {
-  width: 50px;
+  width: 53px;
 }
 label[for="expiration"] {
   display: flex;
