@@ -28,7 +28,7 @@ p {
 } */
 .input-line-two {
   display: flex;
-  gap: 20px;
+  gap: 32px;
   align-items: flex-start;
 }
 .card-front,
@@ -92,9 +92,9 @@ input {
   margin-bottom: 25px;
   /* margin: 0 0 25px; */
   color: black;
-  font-size: 12px;
-  font-family: var(--primary-font);
-  letter-spacing: 1px;
+  font-size: 14px;
+  font-family: "Arial";
+  letter-spacing: .5px;
 }
 #card-number {
   width: 100%;
@@ -111,7 +111,7 @@ label[for="card-number"] {
   font-weight: 400;
 }
 input#card-holder {
-  width: 100px;
+  width: 160px;
 }
 label[for="card-holder"] {
   display: block;
@@ -120,10 +120,11 @@ label[for="card-holder"] {
   font-weight: 400;
 }
 input#mm {
-  width: 53px;
+  width: 30px;
+  margin-right:10px;
 }
 input#yy {
-  width: 53px;
+  width: 30px;
 }
 label[for="expiration"] {
   display: flex;
