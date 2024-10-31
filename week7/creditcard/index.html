@@ -49,8 +49,20 @@
 
             <div class="expiration-container">
               <label for="expiration">EXPIRATION</label>
-              <input type="text" id="mm" name="mm" placeholder="MM" />
-              <input type="text" id="yy" name="yy" placeholder="YY" />
+              <input 
+              type="text" 
+              id="mm" 
+              name="mm" 
+              placeholder="MM" 
+              pattern="(0[1-9]|1[0-2])"
+              />
+              <input 
+              type="text" 
+              id="yy" 
+              name="yy" 
+              placeholder="YY" 
+              pattern="20(2[3-9]|30)" 
+              />
             </div>
           </div>
         </div>
