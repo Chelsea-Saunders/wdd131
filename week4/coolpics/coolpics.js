@@ -1,94 +1,82 @@
 
 
+//Hide menu items by default
 const menuButton = document.querySelector("#menuButton");
 const dropdown = document.querySelector("#dropdown");
 
-
-menuButton.addEventListener("click", function() {
+const toggleDropdown = () => {
     dropdown.classList.toggle("hide");
-});
+}
 
+// function to check and adjust visiblity based on window size
 function handleResize() {
-    const width = window.innerWidth;
-    // const menu = document.querySelector("nav");
+    const screenWidth = window.innerWidth;
+    const maxWidth = 900;
 
-    if (width >= 900) {
-        dropdown.classList.remove("hide");
-    } else {
+    if (screenWidth < maxWidth) {
         dropdown.classList.add("hide");
-    }
-}
-handleResize();
-window.addEventListener("resize", handleResize);
-
-function viewTemplate(pic, alt) {
-    return `<div class="viewer">
-    <button class="close-viewer">X</button>
-    <img src="${pic}" alt="${alt}" class="modal-img">
-    </div>`;
-}
-
-function viewHandler(event) {
-    const clickedElement = event.target;
-
-    //check if the clicked element is an image
-    if (clickedElement.tagName.toLowerCase() === "img") {
-        const src = clickedElement.getAttribute("src");
-
-        //change the source to match the full-size image
-        const fullSrc = `${src.split("-")[0]}-full.jpeg`;
-
-        //create a viewer modal dynamically
-        const viewer = document.createElement("div");
-        viewer.classList.add("viewer");
-        viewer.innerHTML = viewTemplate(fullSrc, clickedElement.alt);
-
-        //insert the viewer modal into the body
-        document.body.appendChild(viewer);   
-
-        // add event listener to the newly created close button
-        const newCloseButton = viewer.querySelector(".close-viewer");
-        newCloseButton.addEventListener("click", closeViewer);
-
-        //close modal when clicking outside image
-        viewer.addEventListener("click", function(event) {
-            if (event.target === viewer) {
-                closeViewer();
-            }
-        });
-    }
-}
-
-//close the modal when clicking the close button
-function closeViewer() {
-    const viewer = document.querySelector(".viewer");
-    if (viewer !== null) {
-        viewer.remove();
-    }
-}
-
-// attach the viewhandler function to gallery section
-const gallerySection = document.querySelector(".gallery");
-gallerySection.addEventListener("click", viewHandler);
-
-const modal = document.getElementById("viewer");
-const btn = document.getElementById("open-viewer");
-
-if (btn) {
-    btn.onclick = function() {
-        modal.style.display = "block";
-    };
-}
-
-const span = document.getElementsByClassName("close")[0];
-if (span) {
-    span.onclick = function() {
-        modal.style.display = "none";
-    };
-}
-
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
+    } else {
+        dropdown.classList.remove("hide");
     }
 };
+// Add event listener to hide menu items 
+menuButton.addEventListener("click", toggleDropdown);
+
+// event listener to check screen size
+window.addEventListener("resize", handleResize);
+
+handleResize();
+
+function viewerTemplate(path, alt) {
+    return `
+        <div class="viewer">
+            <div class="image-container">
+                <button class="close-viewer">X</button>
+                <img src="${path}" alt="${alt}" />
+            </div>
+        </div>
+        `;
+    }
+
+//viewHandler function
+function viewHandler(event) {
+    event.preventDefault();
+
+    console.log("Image Clicked");
+
+    const existingViewer = document.querySelector(".viewer");
+    if (existingViewer) {
+        existingViewer.remove();
+    }
+    const path = event.currentTarget.src;
+    const alt = event.currentTarget.alt;
+
+    console.log("Path:", path, "Alt:", alt);
+
+    //generate viewer modal
+    const viewerHTML = viewerTemplate(path, alt);
+    //put viewer HTML into DOM
+    document.body.insertAdjacentHTML("beforeend", viewerHTML);
+    console.log("Viewer added to DOM");
+
+    const closeButton = document.querySelector(".viewer .close-viewer");
+    //add event listener to close button
+        if (closeButton) {
+            console.log("Close button found");
+            closeButton.addEventListener("click", () => {
+                console.log("Close button clicked");
+                const viewer = document.querySelector(".viewer");
+                if (viewer) {
+                    viewer.remove();
+                    console.log("Viewer removed from DOM");
+                }
+            });
+        } else {
+            console.log("close button not found");
+        }
+    }
+const galleryImages = document.querySelectorAll(".gallery img");
+galleryImages.forEach(image => {
+    console.log("Adding click event listener to image");
+    image.addEventListener("click", viewHandler);   
+});
