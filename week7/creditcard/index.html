@@ -10,7 +10,7 @@
   <body>
     <!-- <form> -->
     <section class="card-container">
-      <form class="card-front">
+      <form id="card-front-fomr" class="card-front">
         <div class="total">
           <p>TOTAL: $199</p>
         </div>
@@ -19,7 +19,7 @@
           <img
             class="card-image"
             src="images/favicon-initials.png"
-            alt="Initials"
+            alt="My Initials"
           />
         </div>
 
@@ -32,6 +32,7 @@
               name="cardNumber"
               placeholder="Enter 16 digit card number"
               pattern="[0-9]{16}"
+              aria-label="Card Number"
             />
           </div>
         </div>
@@ -44,6 +45,8 @@
               id="card-holder"
               name="cardHolder"
               placeholder="Jane Doe"
+              required
+              aria-label="Card Holder Name"
             />
           </div>
 
@@ -55,6 +58,8 @@
             name="mm" 
             placeholder="MM" 
             pattern="(0[1-9]|1[0-2])"
+            required
+            aria-label="Expiration Month"
             />
             <input 
             type="text" 
@@ -62,21 +67,29 @@
             name="yy" 
             placeholder="YY" 
             pattern="20(2[3-9]|30)" 
+            required
+            aria-label="Expiration Year"
             />
           </div>
         </div>
       </form>
-      <form class="card-back">
+      <form id="card-back-form" class="card-back">
         <div class="black"></div>
         <label for="cvc">CVC/CVV</label>
         <input
           type="text" 
           id="cvc" 
           name="cvc" 
-          placeholder="xxx" 
+          placeholder="xxx"
+          pattern="[0-9]{3,4}"
+          required
+          aria-label="CVC or CVV Code"  
           />
+          <!-- Hidden submit button -->
+          <button type="submit" style="display: none;">Hidden Submit</button>
       </form>
-      <button type="submit" class="submit">Submit</button>
+      <!-- main submit button -->
+      <button type="submit" class="submit" onclick="submitForms()">Submit</button>
     </section>
     <!-- </form> -->
   </body>
