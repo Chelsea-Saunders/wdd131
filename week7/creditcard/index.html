@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,77 +8,77 @@
     <script src="creditcard.js" defer></script>
   </head>
   <body>
-    <form>
-      <div class="card-container">
-        <div class="card-front">
-          <div class="total">
-            <p>TOTAL: $199</p>
-          </div>
+    <!-- <form> -->
+    <section class="card-container">
+      <form class="card-front">
+        <div class="total">
+          <p>TOTAL: $199</p>
+        </div>
 
-          <div class="card-img">
-            <img
-              class="card-image"
-              src="images/favicon-initials.png"
-              alt="Initials"
+        <div class="card-img">
+          <img
+            class="card-image"
+            src="images/favicon-initials.png"
+            alt="Initials"
+          />
+        </div>
+
+        <div class="input-line-one">
+          <div class="card-number">
+            <label for="card-number">CARD NUMBER</label>
+            <input
+              type="text"
+              id="card-number"
+              name="cardNumber"
+              placeholder="Enter 16 digit card number"
+              pattern="[0-9]{16}"
+            />
+          </div>
+        </div>
+
+        <div class="input-line-two">
+          <div class="card-holder">
+            <label for="card-holder">CARD HOLDER</label>
+            <input
+              type="text"
+              id="card-holder"
+              name="cardHolder"
+              placeholder="Jane Doe"
             />
           </div>
 
-          <div class="input-line-one">
-            <div class="card-number">
-              <label for="card-number">CARD NUMBER</label>
-              <input
-                type="text"
-                id="card-number"
-                name="cardNumber"
-                placeholder="Enter 16 digit card number"
-                pattern="[0-9]{16}"
-              />
-            </div>
-          </div>
-
-          <div class="input-line-two">
-            <div class="card-holder">
-              <label for="card-holder">CARD HOLDER</label>
-              <input
-                type="text"
-                id="card-holder"
-                name="cardHolder"
-                placeholder="Jane Doe"
-              />
-            </div>
-
-            <div class="expiration-container">
-              <label for="mm">EXPIRATION</label>
-              <input 
-              type="text" 
-              id="mm" 
-              name="mm" 
-              placeholder="MM" 
-              pattern="(0[1-9]|1[0-2])"
-              />
-              <input 
-              type="text" 
-              id="yy" 
-              name="yy" 
-              placeholder="YY" 
-              pattern="20(2[3-9]|30)" 
-              />
-            </div>
-          </div>
-        </div>
-        <div class="card-back">
-          <div class="black"></div>
-          <label for="cvc">CVC/CVV</label>
-          <input
+          <div class="expiration-container">
+            <label for="mm">EXPIRATION</label>
+            <input 
             type="text" 
-            id="cvc" 
-            name="cvc" 
-            placeholder="xxx" 
+            id="mm" 
+            name="mm" 
+            placeholder="MM" 
+            pattern="(0[1-9]|1[0-2])"
             />
+            <input 
+            type="text" 
+            id="yy" 
+            name="yy" 
+            placeholder="YY" 
+            pattern="20(2[3-9]|30)" 
+            />
+          </div>
         </div>
-        <button type="submit" class="submit">Submit</button>
-      </div>
-    </form>
+      </form>
+      <form class="card-back">
+        <div class="black"></div>
+        <label for="cvc">CVC/CVV</label>
+        <input
+          type="text" 
+          id="cvc" 
+          name="cvc" 
+          placeholder="xxx" 
+          />
+      </form>
+      <button type="submit" class="submit">Submit</button>
+    </section>
+    <!-- </form> -->
   </body>
 </html>
 
