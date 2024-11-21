@@ -27,7 +27,7 @@ form {  /*  */
 .search {
     border-bottom: 1px solid lightgray;
     padding-bottom: 20px;
-    margin: 20 auto;
+    margin: 20px auto;
     /* margin-bottom: 20px;
     margin-right: 20px;
     margin-left: 20px; */
@@ -66,9 +66,10 @@ form {  /*  */
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-    width: 500%;
+    width: 50%;
     max-width: 100%;
     height: auto;
+    box-sizing: border-box;
 }
 .column-one {
     flex: 1;
@@ -116,7 +117,8 @@ h2 {
     color: var(--link-color)
 }
 .description {
-    max-width: 50%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .rating {
     padding-bottom: 30px;
