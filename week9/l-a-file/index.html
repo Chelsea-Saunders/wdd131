@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="author" content="Lisaann Sobieralski">
+    <meta name="Description" content="Recipe Book">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Recipe Book">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Gooseberry cake with vanilla cream and crumble">
+    <meta property="og:image" content="images/german-gooseberry-cake.jpg">
+    <meta property="og:url" content="URL of the page">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Recipe Book</title>
+    <link rel="stylesheet" href="recipe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    >
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="intro">
+        <img src="images/recipe-book.png" alt="Recipe Book Icon" class="logo">
+        <h1>RECIPEBOOK</h1>
+      </div>
+      <form action="search-results.html" method="get">
+        <div class="container">
+          <input type="text" name="search" placeholder="Find a recipe" required>
+            <button type="submit">
+              <img src="images/search.svg" alt="search icon" class="icon">
+            </button>
+        </div>
+      </form>
+      <hr class="divider">
+    </header>
+    <main>
+        <div class="body-container">
+            <section class="recipe-container">
+                <img src="images/german-gooseberry-cake.jpg" alt="german-gooseberry-cake">
+            </section>
+            <section class="column-two">
+              <div class="tag-container">
+                <p class="tags">Dessert, German</p>
+              </div>
+              <h2>Gooseberry cake with vanilla cream and crumble</h2>
+              <span class="rating" role="img" aria-label="Rating: 5 out of 5 stars">
+                <span aria-hidden="true" class="icon-star">⭐</span>
+                <span aria-hidden="true" class="icon-star">⭐</span>
+                <span aria-hidden="true" class="icon-star">⭐</span>
+                <span aria-hidden="true" class="icon-star">⭐</span>
+                <span aria-hidden="true" class="icon-star-empty">⭐</span>
+                <!--<span aria-hidden="true" class="icon-star-empty">☆</span>-->
+              </span>
+                <p class="description">This gooseberry cake with crumble is easy to follow,
+                    a bit tart and not too sweet. Made up of a cake base, filled with fresh
+                    gooseberries and vanilla cream and finished off with crumble that's
+                    flavored with vanilla. A must have recipe for gooseberry lovers!!</p>
+            </section>
+        </div>
+    </main>
+    <footer>
+      <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons" class="link">Recipe icons created by Freepik - Flaticon</a>
+      <div class="social">
+        <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
+        <a href="#"><img src="images/instagram_icon.svg" alt="instagram icon"></a>
+        <a href="#"><img src="images/youtube_icon.svg" alt="youtube icon"></a>
+        <a href="#"><img src="images/pinterest_icon.svg" alt="pinterest icon"></a>
+      </div>
+    </footer>
+  </body>
+</html>

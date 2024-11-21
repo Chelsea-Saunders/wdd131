@@ -29,19 +29,9 @@
     gap: 2em;
     align-items: center;
   }
-  .gallery {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .gallery > * {
-    flex: 1 1 460px;
-    /* .gallery > * applies styles to every direct child inside an element with the class gallery, regardless of the tag type (e.g., <div>, <section>, <p>, etc.). This is useful when you want to style all immediate child elements within .gallery without affecting nested or indirect descendants. */
-  }
-  @media(min-width: 550px) {
+  
+  @media screen and (min-width: 550px) {
     .media-card{
-        display: flex;
         flex-direction: row;
     }
     .media-card__image {
@@ -49,7 +39,15 @@
     }
     .media-card__content {
         flex: 0 1 60ch;
-        /* flex-wrap: wrap; */
     }
-    
+    .gallery {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .gallery > * {
+      flex: 1 1 460px;
+      /* .gallery > * applies styles to every direct child inside an element with the class gallery, regardless of the tag type (e.g., <div>, <section>, <p>, etc.). This is useful when you want to style all immediate child elements within .gallery without affecting nested or indirect descendants. */
+    }
   }

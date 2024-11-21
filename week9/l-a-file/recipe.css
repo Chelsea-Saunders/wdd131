@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+:root {
+  --primary-color: #1b98e0;
+  --secondary-color: #59c3c3;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: "Amatic SC";
+}
+body { 
+  text-align: left; 
+  font-family: Arial, sans-serif; 
+  font-size: 20px; 
+}
+.intro {/*this is my header container*/
+  display: flex;
+  font-family: var(--secondary-font);
+  justify-content: center;
+}
+.intro img {/*this is my header img also classed as log*/
+  margin-right: 0;
+  width: auto;
+  height: 125px;
+  padding-bottom: 15px;
+}
+.intro h1 {/*this is my title to page*/
+  font-size: 85px;
+  /*font-weight: bold;*/
+  align-items: flex-end;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-bottom: 15px;
+}
+.logo { /*this is logo placement*/
+  width: 75px; 
+  height: 75px; 
+  align-self: center; 
+} 
+.container { /*this is the search bar*/
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.container input[type="text"] {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-light);
+  border: 1px solid gray;
+  border-right: 2px solid rgb(94, 93, 93);
+  border-radius: 5px 0 0 5px;
+  width: 100%;
+  height: auto;
+  padding-left: 10px;
+} 
+.container .icon {
+  width: 100%;
+  height: 40px;
+}
+button:hover {
+  background-color: var(--secondary-color);
+}
+.recipe-container h2 {
+    font-size: 26px;
+}
+hr.divider { 
+  border: 0; 
+  border-top: 2px solid darkgray; 
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  width: 100%; 
+} 
+.body-container {
+    display: flex;
+    flex-direction: row; /* Ensures items are aligned horizontally */
+    align-items: flex-start; /* Align items at the top */
+    justify-content: space-between;
+}
+.column-two {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex: 1;
+    max-width: 45%;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.column-two > * {
+    margin: 0;
+    padding: 0;
+}
+.recipe-container { 
+    flex: 1;
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+} 
+.recipe-container img { 
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+}
+.recipe-container .rating {
+  font-size: 20px;
+  color: gold;
+}
+.tag-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tags {
+  border: 2px solid rgb(94, 93, 93);
+  padding: 10px;
+  text-align: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+} 
+h2 { 
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: flex; 
+  flex-direction: column; 
+  font-family: var(--secondary-font); 
+  color: var(--primary-color); 
+} 
+.description { 
+  /* display: none;  */
+  margin-top: 20px; 
+}
+footer {
+  display: flex;
+  /* flex-direction: row-reverse; */
+  justify-content: space-between;
+  /* align-items: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px; */
+}
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 5px 0;
+  color: var(--text-dark);
+  justify-content: center;
+}
+footer .social {
+    display: flex;
+    justify-self: flex-end;
+    gap: 10px;
+  margin-top: 10px;
+}
+.insta, 
+.youtube,
+.pinterest {
+  width: 50px;
+  padding-top: 50px;
+}
+footer .social img {
+  width: 50px;
+  height: auto;
+  margin: 0;
+}
+/* screen and makes it so it's targeting the 
+screen size AND max-width */
+@media screen and (max-width: 550px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .body-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .recipe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+}
+
+  .recipe-container img {
+    width: 100%;
+    align-self: center;
+  }
+  .description {
+    display: none;
+  }
+  /* footer .social img {
+    width: 25px;
+  } */
+  
+  footer {
+    display: flex;
+    /* height: 0.6em; */
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    /* padding: 20px;
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px; */
+  }
+  footer a {
+    color: var(--primary-color);
+    /* text-decoration: none; */
+    /* margin: 5px 0; */
+  }
+  footer .social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  /* footer .social img {
+    width: 50px;
+    height: auto;
+  } */
+   .insta, 
+   .youtube,
+   .pinterest {
+    width: 50px;
+    padding-top: 50px;
+   }
+   .link {
+    font: .6em;
+    justify-content: center;
+   }
+    .links a {
+     color: var(--link-color);
+    }
+}
