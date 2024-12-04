@@ -12,52 +12,70 @@
     <!-- open graph (og) meta tags for social media sites -->
     <meta property="og:title" content="Soap-making Recipe Book">
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="This site will have recipes for making soap">
+    <meta property="og:description" content="This site will have recipes for making soap and a soap calculator.">
     <meta property="og:image" content="images/LUJI8107.png">
-    <meta property="og:url" content="https://chelsea-saunders.github.io/wdd131/week9/recipes/index.html">
+    <meta property="og:url" content="https://chelsea-saunders.github.io/wdd131/finale/soap-calc/index.html">
 </head>
 <body>
     <header>
-        <img src="images/DesertRainSoapLogo.jpeg" alt="Animated Recipe Book logo" class="logo">
-        <h1 class="header-title">Recipe Book</h1>
+        <nav class="navbar">
+            <!-- wrapper for logo, title and search bar -->
+             <div class="wrapper">
+                <img src="images/drs-logo.jpeg" alt="Desert Rain Soap Logo" class="logo">
+                <div class="header-titles">
+                    <h1 class="header-title">Desert Rain Soap</h1>
+                    <h2 class="page-title">Recipe Book</h2>
+                </div>
+            <!-- search bar...initially hidden -->
+            <div class="search-container">
+                <button class="search-icon" aria-label="Search">
+                    <img src="images/search 2.37.51 PM.svg" alt="Search Icon" class="icon">
+                </button>
+                <input type="text" class="search-bar" placeholder="Search..." style="display: none">
+            </div>
+        </nav>
     </header>
-    <form action="/search" method="get" class="search">
-        <input type="text" name="search" placeholder="Search..." aria-label="Search" class="search-input">
-        <button type="submit" id="search-button">
-            <img src="image/search.svg" alt="search icon" class="search-icon">
-        </button>
-    </form>
+        <!-- nav links -->
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="soapcalc.html">Soap Formulator</a></li>
+        </ul>
     <div class="body">
+        <p class="message">Welcome to Desert Rain Soap - your go-to destination for handmade soap inspiration. 
+            Explore unique recipes crafted with care or create your own custom blends using 
+            our soap calculator. Enjoy Soaping!</p>
         <div id="recipe-container"></div>
             <div class="everything-container">
+                <h2 class="recipe-name">75% Lard Soap</h2>
                 <section class="column-one">
-                    <img src="images/apple-crisp 2.37.51 PM.jpg" alt="Apple crisp with vanilla ice cream" class="recipe-img">
+                    <img src="images/pink-n-yellow.PNG" alt="Pink and Yellow Swirled Bars of Soap" class="recipe-img">
                 </section>
                 <section class="column-two">
-                    <div class="food-category">
-                        <p class="tags">dessert</p>
+                    <div class="ingredients">
+                        <h3>Ingredients</h3>
+                        <ul>
+                            <li>3.2 oz Castor Oil</li>
+                            <li>4.8 oz Coconut Oil</li>
+                            <li>24 oz Lard</li>
+                            <li>8.7 oz Water</li>
+                            <li>4.35 oz Sodium Hydrozide</li>
+                            <li>1.5 oz Fragrance or Essentil Oil (optional)</li>
+                        </ul>
                     </div>
-                    <h2>Apple Crisp</h2>
-                    <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-                        <span aria-hidden="true" class="icon-star">⭐</span>
-                        <span aria-hidden="true" class="icon-star">⭐</span>
-                        <span aria-hidden="true" class="icon-star">⭐</span>
-                        <span aria-hidden="true" class="icon-star-empty">⭐</span>
-                        <span aria-hidden="true" class="icon-star-empty">☆</span>
-                    </span>
-                    <p class="description">This apple crisp recipe is a simple yet delicious fall dessert that's great served warm with vanilla ice cream.</p>
+                    <p class="description">Mild on the skin, lasts a decent amount of time in the shower (depending on use).</p>
                 </section>
             </div>
         </div>
     <footer>
+        <div class="site-plan">
+            <a href="https://chelsea-saunders.github.io/wdd131/finale/site-plan.html">Site Plan</a>
+        </div>
+        <p>DesertRainSoap &copy; 2024 - Chelsea Saunders</p>
         <nav class="social">
             <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
-            <a href="#"><img src="image/instagram_icon.svg" alt="instagram icon" class="insta"></a>
-            <a href="#"><img src="image/youtube_icon.svg" alt="youtube icon" class="youtube"></a>
-            <a href="#"><img src="image/pinterest_icon.svg" alt="pinterest icon" class="pinterest"></a>
-        </nav>
-        <nav class="links">
-            <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons" class="link">Recipe icons created by Freepik - Flaticon</a>
+            <a href="#"><img src="images/instagram.svg" alt="instagram icon" class="insta"></a>
+            <a href="#"><img src="images/youtube.svg" alt="youtube icon" class="youtube"></a>
+            <a href="#"><img src="images/pinterest.svg" alt="pinterest icon" class="pinterest"></a>
         </nav>
     </footer>
 </body>

@@ -10,15 +10,221 @@
     <script src="soapCalc.js" type="module"></script>
 
     <!-- open graph (og) meta tags for social media sites -->
-    <meta property="og:title" content="Recipe Book">
+    <meta property="og:title" content="Soap-making Recipe Book">
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="This site shows a recipe for Apple Crisp">
-    <meta property="og:image" content="images/images/apple-crisp.jpg">
-    <meta property="og:url" content="https://chelsea-saunders.github.io/wdd131/week9/recipes/index.html">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:description" content="This site will have recipes for making soap and a soap calculator.">
+    <meta property="og:image" content="images/LUJI8107.png">
+    <meta property="og:url" content="https://chelsea-saunders.github.io/wdd131/finale/soap-calc/index.html">
 </head>
 <body>
     <header>
-        <img src="image/recipe-book.png" alt="Animated Recipe Book logo" class="logo">
-        <h1 class="header-title">Recipe Book</h1>
+        <nav class="navbar">
+            <!-- wrapper for logo, title and search bar -->
+             <div class="wrapper">
+                <img src="images/drs-logo.jpeg" alt="Desert Rain Soap Logo" class="logo">
+            <div class="header-titles">
+                <h1 class="header-title">Desert Rain Soap</h1>
+                <h2 class="page-title">Lather Lab</h2>
+            </div>
+            <!-- search bar...initially hidden -->
+            <div class="search-container">
+                <button class="search-icon" aria-label="Search">
+                    <img src="images/search 2.37.51 PM.svg" alt="Search Icon" class="icon">
+                </button>
+                <input type="text" class="search-bar" placeholder="Search..." style="display: none">
+            </div>
+        </nav>
     </header>
+        <!-- nav links -->
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="soapcalc.html">Soap Formulator</a></li>
+        </ul>
+    <div>
+        <form id="form">
+            <fieldset id="soap-calc">
+                <legend>Calculate Soap Recipe</legend>
+                <div class="grid-container">
+                    <!-- left column -->
+                    <section class="soap-calc">
+                        <div class="lye-type">
+                            <label for="lye-type">Lye Type</label>
+                            <select id="lye-type" name="lye-type">
+                                <option value="lye-type">Choose One</option>
+                                <option value="NaOH">NaOH (sodium hydroxide)</option>
+                                <option value="KOH">KOH (potassium hydroxide)</option>
+                            </select>
+                        </div>
+                        <div class="super-fat">
+                            <label for="super-fat">Super Fat %</label>
+                            <input 
+                                id="super-fat" 
+                                type="text" 
+                                name="super-fat"
+                                value="" 
+                                placeholder="Enter %"
+                                required
+                            />
+                        </div>
+                        <div class="unit-of-measurement">
+                            <label for="unit-of-measurement">Unit of Measurement</label>
+                            <select id="unit-of-measurement" name="unit-of-measurement">
+                                <option value="unit-of-measurement">Choose One</option>
+                                <option value="lbs">lbs(pounds)</option>
+                                <option value="oz">oz (ounces)</option>
+                                <option value="g">g (grams)</option>
+                                <option value="percent">% (percentage)</option>
+                            </select>
+                        </div>
+                        <div class="total-oil-weight">
+                            <label for="total-oil-weight">Total Soap Weight (in oz)</label>
+                            <input  
+                                id="total-oil-weight"
+                                type="text"
+                                name="total-oil-weight"
+                                value=""
+                                placeholder="Total Soap Weight"
+                                required
+                            />
+                        </div>
+                        <div class="water">
+                            <label for="water">Water (as a %)</label>
+                            <input  
+                                id="water"
+                                type="text"
+                                name="water"
+                                value=""
+                                placeholder="Default 38%"
+                                required
+                            />
+                        </div>
+                        <div class="base-oil">
+                            <label for="base-oil">Base Oil</label>
+                            <select id="base-oil" name="base-oil">
+                                <option value="fatsNoils">Fats & Oils</option>
+                                <option value="sweet-almond">Almond Oil, sweet</option>
+                                <option value="aloe-butter">Aloe Butter</option>
+                                <option value="apricot-kernel-oil">Apricot Kernel Oil</option>
+                                <option value="argan-oil">Argan Oil</option>
+                                <option value="avocado-butter">Avocado Butter</option>
+                                <option value="babasu-oil">Babasu Oil</option>
+                                <option value="beeswax">Beeswax</option>
+                                <option value="borage-oil">Borage Oil</option>
+                                <option value="canola-oil">Canola Oil</option>
+                                <option value="castor-oil">Castor Oil</option>
+                                <option value="cocoa-butter">Cocoa Butter</option>
+                                <option value="coconut-oil-76">Coconut Oil (76deg)</option>
+                                <option value="coconut-oil-fractionated">Coconut Oil, fractionated</option>
+                                <option value="coffee-bean-oil">Coffee Bean Oil</option>
+                                <option value="corn-oil">Corn Oil</option>
+                                <option value="cottonseed-oil">Cottonseed Oil</option>
+                                <option value="emu-oil">Emu Oil</option>
+                                <option value="evening-primrose-oil">Evening Primrose Oil</option>
+                                <option value="flax-seed-oil">Flax Seed Oil</option>
+                                <option value="ghee">Ghee, any</option>
+                                <option value="goose-fat">Goose Fat</option>
+                                <option value="grapeseed-oil">Grapeseed Oil</option>
+                                <option value="hazelnut-oil">Hazelnut Oil</option>
+                                <option value="hemp-oil">Hemp Oil</option>
+                                <option value="illipe-butter">Illipe Butter</option>
+                                <option value="jojoba-oil">Jojoba Oil</option>
+                                <option value="kokum-butter">Kokum Butter</option>
+                                <option value="lanolin">Lanolin Wax</option>
+                                <option value="lard">Lard, pig tallow</option>
+                                <option value="milk">Milk Fat, any</option>
+                                <option value="murumuru-butter">Murumuru Butter</option>
+                                <option value="neem-oil">Neem Oil</option>
+                                <option value="olive-oil">Olive Oil</option>
+                                <option value="olive-oil-pomace">Olive Oil, pomace</option>
+                                <option value="palm-kernel-oil">Palm Kernel Oil</option>
+                                <option value="palm-kernel-oil-flakes">Palm Kernel Oil Flakes</option>
+                                <option value="palm-oil">Palm Oil</option>
+                                <option value="peach-kernel-oil">Peach Kernel Oil</option>
+                                <option value="peanut-oil">Peanut Oil</option>
+                                <option value="pumpkin-seed-oil">Pumpkin Seed Oil</option>
+                                <option value="rabbit-fat">Rabbit Fat</option>
+                                <option value="rapeseed-oil">Rapeseed Oil</option>
+                                <option value="red-palm-oil">Red Palm Oil</option>
+                                <option value="rice-bran-oil">Rice Bran Oil</option>
+                                <option value="rosehip-oil">Rosehip Oil</option>
+                                <option value="safflower-oil">Safflower Oil</option>
+                                <option value="safflower-oil-high-oleic">Safflower Oil, high oleic</option>
+                                <option value="sesame-oil">Sesame Oil</option>
+                                <option value="shea-butter">Shea Butter</option>
+                                <option value="shea-butter-fractionated">Shea Butter, fractionated</option>
+                                <option value="soybean-oil">Soybean Oil</option>
+                                <option value="soybean-hydroginated">soybean, 27.5% hydrogenated</option>
+                                <option value="stearic-acid">Stearic Acid</option>
+                                <option value="sunflower-oil">Sunflower Oil</option>
+                                <option value="sunflower-high-oleic">Sunflower Oil, high oleic</option>
+                                <option value="tallow-beef">Tallow, beef</option>
+                                <option value="tallow-goat">Tallow, goat</option>
+                                <option value="tallow-sheep">Tallow, sheep</option>
+                                <option value="tallow-bear">Tallow, bear</option>
+                                <option value="walnut-oil">Walnut Oil</option>
+                                <option value="wheat-germ-oil">Wheat Germ Oil</option>
+                            </select>
+                            <button type="button" id="add-oil">Add Oil</button>
+                        </div>
+                        <div class="additive">
+                            <label for="additive">(Optional)</label>
+                            <select id="additive" name="additive">
+                                <option value="choose-additives">Choose Additives</option>
+                                <option value="fragrance">Fragrance</option>
+                                <option value="essential">Essential Oil</option>
+                                <option value="herb">Herb</option>
+                                <option value="clay">Clay</option>
+                            </select>
+                            <div class="buttons">
+                                <button type="button" id="add-additive">Add Additive</button>
+                            <button type="button" id="reset-recipe">Reset Recipe</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- right column -->
+                <section class="add-oils">
+                    <div id="selected-oils">
+                        <!-- dynamically added oils will appear here -->
+                        <div class="oil-entry">
+                            <!-- <span>Castor Oil</span>
+                            <input type="number" placeholder="Enter %" class="percentage-input" /> -->
+                        </div>
+                        <!-- dynamically added additives will appear here -->
+                        <div class="oil-entry">
+                            <!-- <span>Coconut Oil</span>
+                            <input type="number" placeholder="Enter %" class="percentage-input"/> -->
+                        </div>
+                    </div>
+                    <div id="selected-additives">
+                         <div class="additive-entry">
+                            <!-- <span>Essential Oil</span>
+                            <input type="number" placeholder="Enter %" class="percentage-input" /> -->
+                        </div>
+                        <div class="additive-entry">
+                            <!-- <span>Herb</span>
+                            <input type="number" placeholder="Enter %" class="percentage-input"/> -->
+                        </div>
+                    </div> 
+                    <div class="bottom-buttons">
+                        <button type="button" id="clear-field" class="clear-field">Clear Field</button>
+                    <button type="button" id="calculate-recipe" class="calculate-recipe">Calculate Recipe</button>
+                    </div>
+                </section>
+                
+            </fieldset>
+        </form>
+    </div>
+    <footer>
+        <div class="site-plan">
+            <a href="https://chelsea-saunders.github.io/wdd131/finale/site-plan.html">Site Plan</a>
+        </div>
+        <p>DesertRainSoap &copy; 2024 - Chelsea Saunders</p>
+        <nav class="social">
+            <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
+            <a href="#"><img src="images/instagram.svg" alt="instagram icon" class="insta"></a>
+            <a href="#"><img src="images/youtube.svg" alt="youtube icon" class="youtube"></a>
+            <a href="#"><img src="images/pinterest.svg" alt="pinterest icon" class="pinterest"></a>
+        </nav>
+    </footer>
+</body>
