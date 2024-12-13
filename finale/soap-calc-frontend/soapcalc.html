@@ -7,7 +7,8 @@
     <meta name="description" content="This site shows a recipe for Apple Crisp">
     <meta name="author" content="Chelsea Saunders">
     <link rel="stylesheet" href="soapCalc.css">
-    <script src="soapCalc.js" type="module"></script>
+    <script src="./soapCalc.js" type="module"></script>
+    <pre id="recipe-output"></pre>
 
     <!-- open graph (og) meta tags for social media sites -->
     <meta property="og:title" content="Soap-making Recipe Book">
@@ -55,17 +56,6 @@
                                 <option value="KOH">KOH (potassium hydroxide)</option>
                             </select>
                         </div>
-                        <div class="super-fat">
-                            <label for="super-fat">Super Fat %</label>
-                            <input 
-                                id="super-fat" 
-                                type="text" 
-                                name="super-fat"
-                                value="" 
-                                placeholder="Enter %"
-                                required
-                            />
-                        </div>
                         <div class="unit-of-measurement">
                             <label for="unit-of-measurement">Unit of Measurement</label>
                             <select id="unit-of-measurement" name="unit-of-measurement">
@@ -77,13 +67,24 @@
                             </select>
                         </div>
                         <div class="total-oil-weight">
-                            <label for="total-oil-weight">Total Soap Weight (in oz)</label>
+                            <label for="total-oil-weight">Total Oil Weight</label>
                             <input  
                                 id="total-oil-weight"
                                 type="text"
                                 name="total-oil-weight"
                                 value=""
                                 placeholder="Total Soap Weight"
+                                required
+                            />
+                        </div>
+                        <div class="super-fat">
+                            <label for="super-fat">Super Fat %</label>
+                            <input 
+                                id="super-fat" 
+                                type="text" 
+                                name="super-fat"
+                                value="" 
+                                placeholder="Enter %"
                                 required
                             />
                         </div>
@@ -169,15 +170,13 @@
                         <div class="additive">
                             <label for="additive">(Optional)</label>
                             <select id="additive" name="additive">
-                                <option value="choose-additives">Choose Additives</option>
-                                <option value="fragrance">Fragrance</option>
-                                <option value="essential">Essential Oil</option>
-                                <option value="herb">Herb</option>
-                                <option value="clay">Clay</option>
+                                <option value="choose-additives">Fragrance/Essential Oil</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                             <div class="buttons">
-                                <button type="button" id="add-additive">Add Additive</button>
-                            <button type="button" id="reset-recipe">Reset Recipe</button>
+                                <button type="button" id="add-additive">Enter Input</button>
+                                <button type="button" id="reset-recipe">Reset Recipe</button>
                             </div>
                         </div>
                     </section>
@@ -208,7 +207,7 @@
                     </div> 
                     <div class="bottom-buttons">
                         <button type="button" id="clear-field" class="clear-field">Clear Field</button>
-                    <button type="button" id="calculate-recipe" class="calculate-recipe">Calculate Recipe</button>
+                        <button type="button" id="calculate-recipe" class="calculate-recipe">Calculate Recipe</button>
                     </div>
                 </section>
                 

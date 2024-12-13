@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <meta name="description" content="This site shows a recipe for Apple Crisp">
+    <meta name="author" content="Chelsea Saunders">
+    <link rel="stylesheet" href="soapCalc.css">
+    <script src="./soapCalc.js" type="module"></script>
+    <script type="module" src="./recipes.mjs"></script>
+
+    <!-- open graph (og) meta tags for social media sites -->
+    <meta property="og:title" content="Soap-making Recipe Book">
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="This site will have recipes for making soap and a soap calculator.">
+    <meta property="og:image" content="images/LUJI8107.png">
+    <meta property="og:url" content="https://chelsea-saunders.github.io/wdd131/finale/soap-calc/index.html">
+</head>
+<header>
+    <nav class="navbar">
+        <!-- wrapper for logo, title and search bar -->
+            <div class="wrapper">
+            <img src="images/drs-logo.jpeg" alt="Desert Rain Soap Logo" class="logo">
+            <div class="header-titles">
+                <h1 class="header-title">Desert Rain Soap</h1>
+                <h2 class="page-title">Recipe Book</h2>
+            </div>
+        <!-- search bar...initially hidden -->
+        <div class="search-container">
+            <button class="search-icon" aria-label="Search">
+                <img src="images/search 2.37.51 PM.svg" alt="Search Icon" class="icon">
+            </button>
+            <input type="text" class="search-bar" placeholder="Search..." style="display: none">
+        </div>
+    </nav>
+</header>
+<body>
+    <!-- nav links -->
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="soapcalc.html">Soap Formulator</a></li>
+    </ul>
+<div class="body">
+    <section class="message-title">
+        <p class="message">Welcome to Desert Rain Soap - your go-to destination for handmade soap inspiration. 
+            Explore unique recipes crafted with care or create your own custom blends using 
+            our soap calculator. Enjoy Soaping!
+        </p>
+        <h2 class="recipe-name"></h2>
+        </section>
+    <div id="recipe-container"></div>
+        <div class="everything-container">
+            <section class="column-one">
+                <img class="recipe-img">
+            </section>
+            <section class="column-two">
+                <div class="ingredients">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <!-- ingredients go here -->
+                        <!-- <li>3.2 oz Castor Oil</li>
+                        <li>4.8 oz Coconut Oil</li>
+                        <li>24 oz Lard</li>
+                        <li>8.7 oz Water</li>
+                        <li>4.35 oz Sodium Hydrozide</li></li> -->
+                    </ul>
+                    <h4> Additives </h4>
+                    <ul>
+                        <!-- <li>  any additives/colors  </li> -->
+                    </ul>
+                    <h4> Fragrance  </h4>
+                    <ul>
+                        <!-- <li> any fragrance/essential oils </li> -->
+                    </ul>
+                </div>
+                <p class="description">Description
+                    <!-- description goes here -->
+                    <!-- Mild on the skin, lasts a decent amount of time in the shower (depending on water drainage). -->
+                </p>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="site-plan">
+            <a href="https://chelsea-saunders.github.io/wdd131/finale/site-plan.html">Site Plan</a>
+        </div>
+        <p>DesertRainSoap &copy; 2024 - Chelsea Saunders</p>
+        <nav class="social">
+            <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
+            <a href="#"><img src="images/instagram.svg" alt="instagram icon" class="insta"></a>
+            <a href="#"><img src="images/youtube.svg" alt="youtube icon" class="youtube"></a>
+            <a href="#"><img src="images/pinterest.svg" alt="pinterest icon" class="pinterest"></a>
+        </nav>
+    </footer>
+</body>
+</html>

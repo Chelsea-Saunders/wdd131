@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "finalWithJson", "finalWithJson", "{BB6ED9EE-E574-4577-B8AA-29467865CB6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoapRecipeApp", "finalWithJson\SoapRecipeApp\SoapRecipeApp.csproj", "{66207CA4-52A3-4775-83FB-7EDE68F1D068}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66207CA4-52A3-4775-83FB-7EDE68F1D068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66207CA4-52A3-4775-83FB-7EDE68F1D068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66207CA4-52A3-4775-83FB-7EDE68F1D068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66207CA4-52A3-4775-83FB-7EDE68F1D068}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{66207CA4-52A3-4775-83FB-7EDE68F1D068} = {BB6ED9EE-E574-4577-B8AA-29467865CB6F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73877757-F232-40E7-8286-CD96D83DA583}
+	EndGlobalSection
+EndGlobal
