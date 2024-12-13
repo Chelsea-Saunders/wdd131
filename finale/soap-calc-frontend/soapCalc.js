@@ -1,6 +1,36 @@
 import { recipes } from './recipes.mjs';
 //main.js
 
+//search functionality
+function fulterRecipe(query) {
+    //convert query to lowercase
+    const lowerCaseQuery = query.toLowerCase();
+
+    //filter recipes based on query
+    const filteredRecipes = recipes.filter(recipe => {
+        recipe.recipeName.toLowerCase().includes(lowerCaseQuery);
+    });
+    return filteredRecipes;
+}
+function handleSearch() {
+    //get search input value
+    const searchBar = document.querySelector('.search-bar');
+    const query = searchBar.value.trim();
+
+    //filter recipes
+    const filteredRecipes = fulterRecipe(query);
+
+    //update recipe display
+    const everythingContainer = document.querySelector('.everything-container');
+    if (filteredRecipes.length > 0) {
+        //show filtered recipes 
+        everythingContainer.innerHTML = '';
+        filteredRecipes.forEach(recipe => makeRecipe(recipe));
+    } else {
+        //show no results message
+        everythingContainer.innerHTML = `<p>No recipe found for ${query}</p>`;
+    }
+}
 // section about imputting recipe in the form:
 function getRandomRecipe(recipes) {
     const randomIndex = Math.floor(Math.random() * recipes.length);
@@ -116,6 +146,11 @@ function showButtonsAndBorders() {
 
 //CALCULATE RECIPE page initializeer and listener
 document.addEventListener('DOMContentLoaded', () => {
+    //event listener for Search
+    const searchBar = document.querySelector('.search-bar');
+    //listen for input changes in search bar
+    searchBar.addEventListener('input', handleSearch);
+
     //add event listener for buttons
     const addOilButton = document.querySelector('#add-oil');
     if (addOilButton) {
