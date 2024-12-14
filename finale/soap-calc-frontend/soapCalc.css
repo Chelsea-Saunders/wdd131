@@ -144,23 +144,13 @@ body {
 }
 .everything-container {
     display: grid;
-    /* grid-template-areas: 
-        "recipe-name recipe-name"
-        "column-one column-two"; */
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
-    /* padding-bottom: 30px; */
     box-sizing: border-box;
 }
 .recipe {
     display: contents;
-    /* display: grid;
-    grid-template-areas: 
-        "recipe-name recipe-name"
-        "column-one column-two";
-    grid-template-columns: 1fr 1fr;;
-    box-sizing: border-box; */
 }
 .column-one {
     grid-column: 1;
@@ -171,6 +161,7 @@ body {
 .column-two {
     grid-column: 2;
     padding-right: 2em;
+    padding-bottom: 2em;
     background-color: var(--primary-color);
     text-align: left;
     box-sizing: border-box;
@@ -415,31 +406,32 @@ input[type=number] {
     .add-oils {
         grid-column: 1;
     }
+    .recipe {
+        display: contents;
+    }
     .everything-container {
-        grid-template-areas:
-            "recipe-name" /* recipe name first */
-            "column-one" /* image second */
-            "column-two"; /* ingredients and instructions last */
+        display: grid;
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 1em;
         text-align: left;
         box-sizing: border-box;
     }
+
     .column-one {
-        grid-area: column-one; 
+        grid-column: auto;
         display: flex;
         justify-content: center;
-        max-width: 100%;
-        width: 100%;
+        align-items: center;
     }
     .column-two {
-        grid-area: column-two;
+        grid-column: auto;
         padding: 1em;
         padding-left: 3em;
-        width: 100%;
-        max-width: 100%;
+        padding-bottom: 2em;
         object-fit: contain;
         text-align: left;
+        box-sizing: border-box;
     }
     img {
         max-width: 100%;
