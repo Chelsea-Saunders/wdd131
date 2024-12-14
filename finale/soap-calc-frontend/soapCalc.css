@@ -386,6 +386,20 @@ footer {
 #selected-additives {
     display: none;
 }
+.save-recipe {
+    display: none;
+}
+.recipe-output {
+    /* display: none; */
+    margin-top: 20px;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    font-family: var(--paragraph-font);
+    font-size: 1em;
+    line-height: 1.5;
+}
 /* remove spinner arrrows form number input */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {

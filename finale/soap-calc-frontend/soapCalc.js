@@ -163,14 +163,15 @@ function makeRecipe(recipe, query = '') {
     updateRecipeName(recipe);
 }
 
+//Soapcalc JS
+
+//function calculateRecipe() 
+
 //main initialization
 document.addEventListener('DOMContentLoaded', () => {
     const randomRecipe = getRandomRecipe(recipes);
     makeRecipe(randomRecipe);
 })
-
-
-
 
 //soapCalc.js
 
