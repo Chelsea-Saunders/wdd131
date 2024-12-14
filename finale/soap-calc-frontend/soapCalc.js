@@ -165,7 +165,7 @@ function makeRecipe(recipe, query = '') {
 
 //Soapcalc JS
 
-//function calculateRecipe() 
+//function calculateRecipe()
 
 //main initialization
 document.addEventListener('DOMContentLoaded', () => {

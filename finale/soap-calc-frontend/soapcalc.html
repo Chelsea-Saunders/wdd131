@@ -63,7 +63,6 @@
                                 <option value="lbs">lbs(pounds)</option>
                                 <option value="oz">oz (ounces)</option>
                                 <option value="g">g (grams)</option>
-                                <option value="percent">% (percentage)</option>
                             </select>
                         </div>
                         <div class="total-oil-weight">
@@ -98,6 +97,8 @@
                                 placeholder="Default 38%"
                                 required
                             />
+                            <p>Note: Leave blank to use the default value.</p>
+
                         </div>
                         <div class="base-oil">
                             <label for="base-oil">Base Oil</label>
@@ -166,6 +167,8 @@
                                 <option value="wheat-germ-oil">Wheat Germ Oil</option>
                             </select>
                             <button type="button" id="add-oil">Add Oil</button>
+                            <button type="button" id="clear-oils">Clear All Oils</button>
+
                         </div>
                         <div class="additive">
                             <label for="additive">(Optional)</label>
@@ -183,32 +186,23 @@
                 </div>
                 <!-- right column -->
                 <section class="add-oils">
+                    <div id="error-message" style="color: red; display: none;"></div>
                     <div id="selected-oils">
-                        <!-- dynamically added oils will appear here -->
-                        <div class="oil-entry">
-                            <!-- <span>Castor Oil</span>
-                            <input type="number" placeholder="Enter %" class="percentage-input" /> -->
-                        </div>
-                        <!-- dynamically added additives will appear here -->
-                        <div class="oil-entry">
-                            <!-- <span>Coconut Oil</span>
-                            <input type="number" placeholder="Enter %" class="percentage-input"/> -->
-                        </div>
-                    </div>
+                        <h3>Selected Oils</h3>
+                        <!-- Dynamically added oils will appear here -->
+                    </div>                    
                     <div id="selected-additives">
-                         <div class="additive-entry">
-                            <!-- <span>Essential Oil</span>
-                            <input type="number" placeholder="Enter %" class="percentage-input" /> -->
-                        </div>
-                        <div class="additive-entry">
-                            <!-- <span>Herb</span>
-                            <input type="number" placeholder="Enter %" class="percentage-input"/> -->
-                        </div>
-                    </div> 
+                        <h3>Selected Additives</h3>
+                        <!-- Dynamically added additives will appear here -->
+                    </div>                    
                     <div class="bottom-buttons">
                         <button type="button" id="clear-field" class="clear-field">Clear Field</button>
                     <button type="button" id="calculate-recipe" class="calculate-recipe">Calculate Recipe</button>
                     </div>
+                    <div id="recipe-output" class="recipe-output" style="display: none;">
+                        <h2>Recipe</h2>
+                        <ul id="recipe-list"></ul>
+                    </div>                    
                 </section>
                 
             </fieldset>

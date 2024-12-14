@@ -104,12 +104,11 @@ header {
 }
 .icon {
     width: 25px;
-    height: 25px;
+    height: 35px;
     cursor: pointer;
     flex: 1;
     border-radius: 10px;
     /* align-self:last baseline; */
-
 }
 .icon:hover {
     cursor: pointer;
@@ -412,6 +411,14 @@ input[type=number] {
 @media (max-width: 768px) {
     .header-title {
         text-align: center;
+    }
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
     }
     .grid-container {
         grid-template-columns: 1fr;
