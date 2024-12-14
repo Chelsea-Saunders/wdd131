@@ -64,12 +64,14 @@ function handleSearch() {
         //append each recipe
         filteredRecipes.forEach(recipe => {
             everythingContainer.innerHTML += `
-                <section class="column-one">
-                    ${recipeImgTemplate(recipe)}
-                </section>
-                <section class="column-two">
-                    ${recipeTemplate(recipe, query)}
-                </section>
+                <div class="recipe">
+                    <section class="column-one">
+                        ${recipeImgTemplate(recipe)}
+                    </section>
+                    <section class="column-two">
+                        ${recipeTemplate(recipe, query)}
+                    </section>
+                </div>
             `;
         });
     } else {
@@ -129,9 +131,7 @@ function recipeTemplate(recipe, query) {
 //function to generate recipe image
 function recipeImgTemplate(recipe) {
     return `
-    <section class="column-one">
-        <img src="${recipe.image?.src || './default-image.jpg'}" alt="${recipe.image?.alt || 'Soap Image'}">
-    </section>
+        <img class="recipe-img" src="${recipe.image?.src || './default-image.jpg'}" alt="${recipe.image?.ale || 'Soap Image'}">
     `;
 }
 //function to generate recipe name
