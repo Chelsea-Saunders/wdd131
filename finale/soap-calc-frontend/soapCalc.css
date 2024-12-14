@@ -388,8 +388,8 @@ footer {
 .save-recipe {
     display: none;
 }
-.recipe-output {
-    /* display: none; */
+#recipe-output {
+    display: none !important;
     margin-top: 20px;
     padding: 1em;
     border: 1px solid #ccc;

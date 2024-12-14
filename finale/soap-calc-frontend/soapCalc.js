@@ -1,197 +1,85 @@
-import { recipes } from './recipes.mjs';
-//main.js
-
-const searchBar = document.querySelector('.search-bar');
-const searchIcon = document.querySelector('.search-icon');
-
-function toggleSearchBar() {
-    //make search bar visible
-    if (searchBar.style.display === 'none' || searchBar.style.display === '') {
-        searchBar.style.display = 'block';
-        searchBar.focus();
-    } else {
-        searchBar.style.display = 'none';
-    }
-}
-// function to handle search on enter key press
-function handleSearchOnEnter(event) {
-    if (event.key === 'Enter') {
-        console.log('Enter key pressed');
-        handleSearch();
-    }
-}
-//search functionality 
-function filterRecipe(query) {
-    const lowerCaseQuery = query.toLowerCase();
-
-    return recipes.filter(recipe => {
-        //searc by recipe name
-        if (recipe.recipeName.toLowerCase().includes(lowerCaseQuery)) {
-            return true;
-        }
-        //search by base oils
-        if (recipe.baseOils.some(oil => 
-                oil && oil.name && oil.name.toLowerCase().includes(lowerCaseQuery)
-            )
-        ) {
-            return true;
-        }
-        //search by additives
-        if (
-            recipe.additives && 
-            recipe.additives.some(additive => 
-                additive && additive.name && additive.name.toLowerCase().includes(lowerCaseQuery)
-            )
-        ) {
-            return true;
-        }
-        //search by description
-        if (recipe.description.toLowerCase().includes(lowerCaseQuery)) {
-            return true;
-        }
-        return false;
-    });
-}
-function handleSearch() {
-    const query = searchBar.value.trim();
-    const filteredRecipes = filterRecipe(query);
-
-    const everythingContainer = document.querySelector('.everything-container');
-    //clear container
-    everythingContainer.innerHTML = '';
-
-    if (filteredRecipes.length > 0) {
-        //append each recipe
-        filteredRecipes.forEach(recipe => {
-            everythingContainer.innerHTML += `
-                <div class="recipe">
-                    <section class="column-one">
-                        ${recipeImgTemplate(recipe)}
-                    </section>
-                    <section class="column-two">
-                        ${recipeTemplate(recipe, query)}
-                    </section>
-                </div>
-            `;
-        });
-    } else {
-        everythingContainer.innerHTML = `<p>No recipe found for ${query}</p>`;
-    }
-}
-// section about imputting recipe in the form:
-function getRandomRecipe(recipes) {
-    const randomIndex = Math.floor(Math.random() * recipes.length);
-    return recipes [randomIndex];
-}
-function highlightMatch(text, query) {
-    if (!text) return ''; // return empty string if text is false/flasy
-    const regex = new RegExp(`(${query})`, 'gi'); // case-insensitive match
-    return text.replace(regex, '<mark>$1</mark>'); // wrap march in <mark> 
-}
-//function to getnerate recipe templates
-function recipeTemplate(recipe, query) {
-    return `
-    <section class="column-two">
-        <div class="ingredients">
-            <h3>Ingredients</h3>
-            <h4>Oils</h4>
-            <ul>
-                <!-- ingredients go here -->
-                ${recipe.baseOils
-                    .map(oil => `<li>${highlightMatch(oil.name || '', query)}: ${oil.weight || ''}</li>`)
-                    .join('')}
-            </ul>
-            <h4> Lye </h4>
-            <p>${highlightMatch(recipe.lyeType || 'Unknown', query)}: ${recipe.lyeWeight || 'Unknown Weight'}<p>
-            <h4> Additives </h4>
-            <ul>
-            ${recipe.additives && recipe.additives.length > 0
-                ? recipe.additives.map(additive => 
-                    `<li>${highlightMatch(additive.name || 'Unknown', query)}: ${additive.weight || ''}</li>`
-                ).join('')
-                : '<li>No additives</li>'}
-            </ul>
-            <h4> Fragrance </h4>
-            <ul>
-            ${recipe.fragrance && recipe.fragrance.length > 0
-                ? recipe.fragrance.map(frag => 
-                    `<li>${highlightMatch(frag.name || 'Unknown', query)}: ${frag.weight || ''}</li>`
-                  ).join('')
-                : '<li>No fragrance</li>'}
-            </ul>
-
-        </div>
-        <h4>Description</h4>
-        <p class="description">
-            ${highlightMatch(recipe.description || 'No description available', query)}
-        </p>
-    </section>
-    `;
-}
-//function to generate recipe image
-function recipeImgTemplate(recipe) {
-    return `
-        <img class="recipe-img" src="${recipe.image?.src || './default-image.jpg'}" alt="${recipe.image?.ale || 'Soap Image'}">
-    `;
-}
-//function to generate recipe name
-function updateRecipeName(recipe) {
-    const recipeNameElement = document.querySelector('.message-title .recipe-name');
-    if (recipeNameElement) {
-        recipeNameElement.textContent = recipe.recipeName;
-    } else {
-        console.log('Recipe name not found');
-    }
-}
-//function to display recipe
-function makeRecipe(recipe, query = '') {
-    const everythingContainer = document.querySelector('.everything-container');
-    
-    //clear container before ading recipes
-    everythingContainer.innerHTML = '';
-
-    //append each recipe to container
-    everythingContainer.innerHTML += `
-        <section class="column-one">
-            ${recipeImgTemplate(recipe)}
-        </section>
-        <section class="column-two">
-            ${recipeTemplate(recipe, query)}
-        </section>
-    `;
-    // update recipe name seperate so undefined is not displayed
-    updateRecipeName(recipe);
-}
-
-//Soapcalc JS
-
-//function calculateRecipe()
-
-//main initialization
-document.addEventListener('DOMContentLoaded', () => {
-    const randomRecipe = getRandomRecipe(recipes);
-    makeRecipe(randomRecipe);
-})
-
-//soapCalc.js
+const sapValues = {
+    "sweet-almond": { NaOH: 0.136, KOH: 0.191 },
+    "aloe-butter": { NaOH: 0.178, KOH: 0.25 },
+    "apricot-kernel-oil": { NaOH: 0.137, KOH: 0.194 },
+    "argan-oil": { NaOH: 0.137, KOH: 0.194 },
+    "avocado-oil": { NaOH: 0.133, KOH: 0.187 },
+    "babassu-oil": { NaOH: 0.175, KOH: 0.246 },
+    "beef-tallow": { NaOH: 0.141, KOH: 0.198 },
+    "bison-tallow": { NaOH: 0.138, KOH: 0.194 },
+    "butter": { NaOH: 0.129, KOH: 0.183 },
+    "canola-oil": { NaOH: 0.131, KOH: 0.185 },
+    "castor-oil": { NaOH: 0.128, KOH: 0.18 },
+    "cocoa-butter": { NaOH: 0.137, KOH: 0.194 },
+    "coconut-oil": { NaOH: 0.178, KOH: 0.25 },
+    "corn-oil": { NaOH: 0.136, KOH: 0.191 },
+    "cottonseed-oil": { NaOH: 0.138, KOH: 0.194 },
+    "duck-fat": { NaOH: 0.136, KOH: 0.191 },
+    "flaxseed-oil": { NaOH: 0.135, KOH: 0.19 },
+    "goose-fat": { NaOH: 0.135, KOH: 0.19 },
+    "grapeseed-oil": { NaOH: 0.135, KOH: 0.19 },
+    "hazelnut-oil": { NaOH: 0.136, KOH: 0.191 },
+    "hemp-seed-oil": { NaOH: 0.137, KOH: 0.194 },
+    "jojoba-oil": { NaOH: 0.069, KOH: 0.098 },
+    "kokum-butter": { NaOH: 0.137, KOH: 0.194 },
+    "lard": { NaOH: 0.138, KOH: 0.194 },
+    "macadamia-oil": { NaOH: 0.139, KOH: 0.197 },
+    "mango-butter": { NaOH: 0.135, KOH: 0.19 },
+    "neem-oil": { NaOH: 0.138, KOH: 0.194 },
+    "olive-oil": { NaOH: 0.134, KOH: 0.19 },
+    "palm-kernel-oil": { NaOH: 0.172, KOH: 0.242 },
+    "palm-oil": { NaOH: 0.141, KOH: 0.198 },
+    "peach-kernel-oil": { NaOH: 0.137, KOH: 0.194 },
+    "peanut-oil": { NaOH: 0.136, KOH: 0.191 },
+    "pumpkin-seed-oil": { NaOH: 0.135, KOH: 0.19 },
+    "rice-bran-oil": { NaOH: 0.128, KOH: 0.18 },
+    "safflower-oil": { NaOH: 0.135, KOH: 0.19 },
+    "sesame-oil": { NaOH: 0.133, KOH: 0.187 },
+    "shea-butter": { NaOH: 0.128, KOH: 0.18 },
+    "soybean-oil": { NaOH: 0.135, KOH: 0.19 },
+    "stearic-acid": { NaOH: 0.141, KOH: 0.198 },
+    "sunflower-oil": { NaOH: 0.135, KOH: 0.19 },
+    "walnut-oil": { NaOH: 0.135, KOH: 0.19 },
+    "wheat-germ-oil": { NaOH: 0.129, KOH: 0.183 }
+};
 
 //function to add entry to selected oils or additives
 function addEntry(selectId, containerId, defaultOptionValue) {
     //get selected value
-    const value = document.getElementById(selectId).value;
+    const selectElement = document.getElementById(selectId);
+    const containerElement = document.getElementById(containerId);
+
+    if (!selectElement || !containerElement) {
+        console.error('Element not found');
+        return;
+    }
+    const value = selectElement.value;
 
     //skip if default option is selected
-    if (value === defaultOptionValue) return;
+    if (value === defaultOptionValue) {
+        console.log('Default option selected');
+        return;
+    }
+    if ([...containerElement.querySelectorAll('span')].some(span => span.textContent.trim() === value)) {
+        console.log(`${value} already added`);
+
+        return;
+    }
 
     //create new entry
     const entry = document.createElement('div');
     entry.classList.add(`${selectId}-entry`); //dynamic class based on section
-    entry.innerHTML = `<span>${value}</span><input type="number" placeholder="Enter %" class="percentage-input">`;
+    entry.innerHTML = `
+        <span>${value}</span>
+        <input type="number" placeholder="Enter %" class="percentage-input">
+        <button type="button" class="remove-entry">Remove</button>`;
 
     //append entry to corrisponding container
-    document.getElementById(containerId).appendChild(entry);
+    containerElement.appendChild(entry);
     showButtonsAndBorders();
+    console.log(`Added ${value}`);
 }
+
 //function to show buttons and borders
 function showButtonsAndBorders() {
     console.log('showButtonsAndBorders triggered');
@@ -200,8 +88,8 @@ function showButtonsAndBorders() {
     document.getElementById('calculate-recipe').style.display = 'inline-block';
 
     //add borders 
-    const oilsContainer = document.getElementById('selected-oils');
-    const additivesContainer = document.getElementById('selected-additives');
+    const oilsContainer = document.querySelector('#selected-oils');
+    const additivesContainer = document.querySelector('#selected-additives');
 
     oilsContainer.style.border = '1px solid #ccc';
     additivesContainer.style.border = '1px solid #ccc';
@@ -210,73 +98,158 @@ function showButtonsAndBorders() {
     oilsContainer.style.display = 'block';
     additivesContainer.style.display = 'block';
 }
-//EVENT LISTENERS
-//MAIN recipe page initializeer and listener
+
+function getFormValues() {
+    const totalOilWeight = parseFloat(document.getElementById('total-oil-weight').value);
+    const superFat = parseFloat(document.getElementById('super-fat').value) || 0;
+    const unit = document.getElementById('unit-of-measurement').value;
+
+    if (![ 'oz', 'g', 'lb'].includes(unit)) {
+        console.error('Invalid unit selected');
+        alert('Please select a valid unit of measurement (oz, g, lb).');
+        return null;
+    }
+
+    const oils = [...document.querySelectorAll('#selected-oils .base-oil-entry')].map(entry => {
+        const oilName = entry.querySelector('span').textContent.trim();
+        const percentage = parseFloat(entry.querySelector('.percentage-input').value) || 0;
+        return { oilName, percentage };
+    });
+
+    console.log("form values:", { totalOilWeight, superFat, unit, oils });
+    return { totalOilWeight, superFat, unit, oils };
+}
+
+function calculateRecipe({ totalOilWeight, superFat, unit, oils }) {
+    console.log('Calculating recipe with values:', { totalOilWeight, superFat, unit, oils });
+    if (oils.length === 0) {
+        console.error('No oils selected');
+        alert('Please select at least one oil');
+        return;
+    }
+
+    const totalPercentage = oils.reduce((sum, oil) => sum + oil.percentage, 0);
+    if (totalPercentage !== 100) {
+        console.error("Percentages must add up to 100");
+        alert("The total percentage of oils must equal 100%.");
+        return;
+    }
+
+    const recipe = [];
+    let totalLye = 0;
+
+    oils.forEach(oil => {
+        const sap = sapValues[oil.oilName]?.NaOH || 0;
+        const oilWeight = (oil.percentage / 100) * totalOilWeight;
+        const lye = oilWeight * sap;
+
+        totalLye += lye;
+
+        recipe.push({
+            oilName: oil.oilName,
+            weight: oilWeight.toFixed(2),
+            lye: lye.toFixed(2),
+        });
+    });
+
+    totalLye = totalLye - (totalLye * (superFat / 100));
+    const water = (totalOilWeight * 0.38).toFixed(2);
+
+    console.log('Calculated recipe:', { recipe, totalLye, water });
+    return { recipe, totalLye, water };
+}
+
+function displayRecipe({ recipe, totalLye, water }) {
+
+    document.getElementById('recipe-output').style.display = 'block';
 
 
+    console.log('Displaying recipe:', { recipe, totalLye, water });
+    const recipeOutput = document.getElementById('recipe-output');
+    const recipeList = document.getElementById('recipe-list');
 
-//CALCULATE RECIPE page initializeer and listener
+    console.log('Computed style:', window.getComputedStyle(recipeList).visibility);
+    console.log('Text color:', window.getComputedStyle(recipeList).color);
+    console.log('Background color:', window.getComputedStyle(recipeList).backgroundColor);
+
+    if (!recipeOutput || !recipeList) {
+        console.error('Element not found');
+        return;
+    }
+
+    console.log('making #recipe-output visible');
+    recipeOutput.style.display = 'block';
+
+    recipeList.innerHTML = '';
+
+    recipe.forEach(item => {
+    recipeList.innerHTML += `
+        <li>${item.oilName}: ${item.weight} (${item.lye} lye)</li>`;
+    });
+
+    recipeList.innerHTML += `<li><strong>Total Lye:</strong> ${totalLye} oz</li>`;
+    recipeList.innerHTML += `<li><strong>Water:</strong> ${water} oz</li>`;
+
+    console.log('Updating recipe-list with:', recipeList.innerHTML);
+
+}
+
+//DOM:
+
 document.addEventListener('DOMContentLoaded', () => {
-    //event listener for Search
-    const searchBar = document.querySelector('.search-bar');
-    //listen for input changes in search bar
-    searchBar.addEventListener('keydown', handleSearchOnEnter);
-    //other listener
-    searchIcon.addEventListener('click', toggleSearchBar);
 
-    //add event listener for buttons
-    const addOilButton = document.querySelector('#add-oil');
-    if (addOilButton) {
-        addOilButton.addEventListener('click', () => {
-            addEntry('base-oil', 'selected-oils', 'fatsNoils');
-        });
-    }
-    // //event listener for searchbar and icon
-    // const searchIcon = document.querySelector('.search-icon');
-    // const searchBar = document.querySelector('.search-bar');
-
-    //make searchbar visible on icon click
-    searchIcon.addEventListener('click', toggleSearchBar);
-    //perform search on enter key
-    searchBar.addEventListener('keypress', handleSearchOnEnter);
+    document.getElementById('add-oil').addEventListener('click', () => {
+        addEntry('base-oil', 'selected-oils', 'fatsNoils');
+    });
 
 
-    const addAdditiveButton = document.querySelector('#add-additive');
-    if (addAdditiveButton) {
-        addAdditiveButton.addEventListener('click', () => {
-            addEntry('additive', 'selected-additives', 'choose-additives');
-        });
+     const addAdditiveButton = document.querySelector('#add-additive');
+     if (addAdditiveButton) {
+         addAdditiveButton.addEventListener('click', () => {
+             addEntry('additive', 'selected-additives', 'choose-additives');
+         });
     }
 
-    //add event listener for clear field button
-    const clearFieldButton = document.querySelector('#clear-field');
+     //add event listener for clear field button
+     const clearFieldButton = document.querySelector('#clear-field');
     if (clearFieldButton) {
         clearFieldButton.addEventListener('click', () => {
             document.querySelector('#selected-oils').innerHTML = '';
             document.querySelector('#selected-additives').innerHTML = '';
         });
     }
-
-    //add event listener for reset recipe button
-    const resetRecipeButton = document.querySelector('#reset-recipe');
+ 
+     //add event listener for reset recipe button
+     const resetRecipeButton = document.querySelector('#reset-recipe');
     if (resetRecipeButton) {
         resetRecipeButton.addEventListener('click', () => {
-            //reset containers and dropdowns
             document.querySelector('#selected-oils').innerHTML = '';
             document.querySelector('#selected-additives').innerHTML = '';
             document.querySelector('#base-oil').value = 'fatsNoils';
             document.querySelector('#additive').value = 'choose-additives';
             document.querySelector('#unit-of-measurement').value = 'unit-of-measurement';
             document.querySelector('#lye-type').value = 'lye-type';
-            //clear input fields
             document.querySelector('#super-fat').value = '';
             document.querySelector('#total-oil-weight').value = '';
             document.querySelector('#water').value = '';
-            //hide buttons and borders
+
             document.querySelector('#clear-field').style.display = 'none';
             document.querySelector('#calculate-recipe').style.display = 'none';
             document.querySelector('#selected-oils').style.border = 'none';
             document.querySelector('#selected-additives').style.border = 'none';
+        });
+    }
+
+    const calculateButton = document.getElementById('calculate-recipe');
+    if (calculateButton) {
+        calculateButton.addEventListener('click', () => {
+            const formValues = getFormValues();
+            if (formValues) {
+                const calculatedRecipe = calculateRecipe(formValues);
+                if (calculatedRecipe) {
+                    displayRecipe(calculatedRecipe);
+                }
+            }
         });
     }
 });
