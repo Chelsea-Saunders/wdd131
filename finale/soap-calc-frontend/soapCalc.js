@@ -1,33 +1,78 @@
 import { recipes } from './recipes.mjs';
 //main.js
 
-//search functionality
-function fulterRecipe(query) {
-    //convert query to lowercase
+const searchBar = document.querySelector('.search-bar');
+const searchIcon = document.querySelector('.search-icon');
+
+function toggleSearchBar() {
+    //make search bar visible
+    if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+        searchBar.style.display = 'block';
+        searchBar.focus();
+    } else {
+        searchBar.style.display = 'none';
+    }
+}
+// function to handle search on enter key press
+function handleSearchOnEnter(event) {
+    if (event.key === 'Enter') {
+        console.log('Enter key pressed');
+        handleSearch();
+    }
+}
+//search functionality 
+function filterRecipe(query) {
     const lowerCaseQuery = query.toLowerCase();
 
-    //filter recipes based on query
-    const filteredRecipes = recipes.filter(recipe => {
-        recipe.recipeName.toLowerCase().includes(lowerCaseQuery);
+    return recipes.filter(recipe => {
+        //searc by recipe name
+        if (recipe.recipeName.toLowerCase().includes(lowerCaseQuery)) {
+            return true;
+        }
+        //search by base oils
+        if (recipe.baseOils.some(oil => 
+                oil && oil.name && oil.name.toLowerCase().includes(lowerCaseQuery)
+            )
+        ) {
+            return true;
+        }
+        //search by additives
+        if (
+            recipe.additives && 
+            recipe.additives.some(additive => 
+                additive && additive.name && additive.name.toLowerCase().includes(lowerCaseQuery)
+            )
+        ) {
+            return true;
+        }
+        //search by description
+        if (recipe.description.toLowerCase().includes(lowerCaseQuery)) {
+            return true;
+        }
+        return false;
     });
-    return filteredRecipes;
 }
 function handleSearch() {
-    //get search input value
-    const searchBar = document.querySelector('.search-bar');
     const query = searchBar.value.trim();
+    const filteredRecipes = filterRecipe(query);
 
-    //filter recipes
-    const filteredRecipes = fulterRecipe(query);
-
-    //update recipe display
     const everythingContainer = document.querySelector('.everything-container');
+    //clear container
+    everythingContainer.innerHTML = '';
+
     if (filteredRecipes.length > 0) {
-        //show filtered recipes 
-        everythingContainer.innerHTML = '';
-        filteredRecipes.forEach(recipe => makeRecipe(recipe));
+        //append each recipe
+        filteredRecipes.forEach(recipe => {
+            everythingContainer.innerHTML += `
+                <section class="column-one">
+                    ${recipeImgTemplate(recipe)}
+                </section>
+                <section class="column-two">
+                    ${recipeTemplate(recipe, query)}
+                </section>
+            `;
+        });
     } else {
-        //show no results message
         everythingContainer.innerHTML = `<p>No recipe found for ${query}</p>`;
     }
 }
@@ -36,32 +81,47 @@ function getRandomRecipe(recipes) {
     const randomIndex = Math.floor(Math.random() * recipes.length);
     return recipes [randomIndex];
 }
+function highlightMatch(text, query) {
+    if (!text) return ''; // return empty string if text is false/flasy
+    const regex = new RegExp(`(${query})`, 'gi'); // case-insensitive match
+    return text.replace(regex, '<mark>$1</mark>'); // wrap march in <mark> 
+}
 //function to getnerate recipe templates
-function recipeTemplate(recipe) {
+function recipeTemplate(recipe, query) {
     return `
     <section class="column-two">
         <div class="ingredients">
             <h3>Ingredients</h3>
+            <h4>Oils</h4>
             <ul>
                 <!-- ingredients go here -->
-                ${recipe.baseOils.map(oil => `<li>${oil.name}: ${oil.weight}</li>`).join('')}
+                ${recipe.baseOils
+                    .map(oil => `<li>${highlightMatch(oil.name || '', query)}: ${oil.weight || ''}</li>`)
+                    .join('')}
             </ul>
+            <h4> Lye </h4>
+            <p>${highlightMatch(recipe.lyeType || 'Unknown', query)}: ${recipe.lyeWeight || 'Unknown Weight'}<p>
             <h4> Additives </h4>
             <ul>
             ${recipe.additives && recipe.additives.length > 0
-                ? recipe.additives.map(additive => `<li>${additive.name || 'Unknown'}: ${additive.weight || ''}</li>`).join('')
+                ? recipe.additives.map(additive => 
+                    `<li>${highlightMatch(additive.name || 'Unknown', query)}: ${additive.weight || ''}</li>`
+                ).join('')
                 : '<li>No additives</li>'}
             </ul>
             <h4> Fragrance </h4>
             <ul>
             ${recipe.fragrance && recipe.fragrance.length > 0
-                ? recipe.fragrance.map(frag => `<li>${frag.name || 'Unknown'}: ${frag.weight || ''}</li>`).join('')
+                ? recipe.fragrance.map(frag => 
+                    `<li>${highlightMatch(frag.name || 'Unknown', query)}: ${frag.weight || ''}</li>`
+                  ).join('')
                 : '<li>No fragrance</li>'}
             </ul>
 
         </div>
+        <h4>Description</h4>
         <p class="description">
-            ${recipe.description || 'No description available'}
+            ${highlightMatch(recipe.description || 'No description available', query)}
         </p>
     </section>
     `;
@@ -84,15 +144,25 @@ function updateRecipeName(recipe) {
     }
 }
 //function to display recipe
-function makeRecipe(recipe) {
+function makeRecipe(recipe, query = '') {
     const everythingContainer = document.querySelector('.everything-container');
-    everythingContainer.innerHTML = `
-        ${recipeImgTemplate(recipe)}
-        ${recipeTemplate(recipe)}
+    
+    //clear container before ading recipes
+    everythingContainer.innerHTML = '';
+
+    //append each recipe to container
+    everythingContainer.innerHTML += `
+        <section class="column-one">
+            ${recipeImgTemplate(recipe)}
+        </section>
+        <section class="column-two">
+            ${recipeTemplate(recipe, query)}
+        </section>
     `;
     // update recipe name seperate so undefined is not displayed
     updateRecipeName(recipe);
 }
+
 //main initialization
 document.addEventListener('DOMContentLoaded', () => {
     const randomRecipe = getRandomRecipe(recipes);
@@ -149,7 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //event listener for Search
     const searchBar = document.querySelector('.search-bar');
     //listen for input changes in search bar
-    searchBar.addEventListener('input', handleSearch);
+    searchBar.addEventListener('keydown', handleSearchOnEnter);
+    //other listener
+    searchIcon.addEventListener('click', toggleSearchBar);
 
     //add event listener for buttons
     const addOilButton = document.querySelector('#add-oil');
@@ -158,6 +230,15 @@ document.addEventListener('DOMContentLoaded', () => {
             addEntry('base-oil', 'selected-oils', 'fatsNoils');
         });
     }
+    // //event listener for searchbar and icon
+    // const searchIcon = document.querySelector('.search-icon');
+    // const searchBar = document.querySelector('.search-bar');
+
+    //make searchbar visible on icon click
+    searchIcon.addEventListener('click', toggleSearchBar);
+    //perform search on enter key
+    searchBar.addEventListener('keypress', handleSearchOnEnter);
+
 
     const addAdditiveButton = document.querySelector('#add-additive');
     if (addAdditiveButton) {
