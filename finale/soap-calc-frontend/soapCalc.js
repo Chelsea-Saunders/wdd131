@@ -181,7 +181,6 @@ const sapValues = {
 };
 
 // Function to add entry to selected oils or additives
-// Function to add entry to selected oils or additives
 function addEntry(selectId, containerId, defaultOptionValue) {
     // Get the selected value and corresponding container
     const selectElement = document.getElementById(selectId);
@@ -273,6 +272,7 @@ function getFormValues() {
 
 function calculateRecipe({ totalOilWeight, superFat, unit, oils }) {
     console.log('Calculating recipe with values:', { totalOilWeight, superFat, unit, oils });
+
     if (oils.length === 0) {
         console.error('No oils selected');
         alert('Please select at least one oil');
@@ -286,12 +286,23 @@ function calculateRecipe({ totalOilWeight, superFat, unit, oils }) {
         return;
     }
 
+    // Conversion factor for units
+    let conversionFactor = 1; // Default: oz
+    if (unit === "g") {
+        conversionFactor = 0.035274; // grams to oz
+    } else if (unit === "lbs") {
+        conversionFactor = 16; // pounds to oz
+    }
+
+    const totalOilWeightInOz = totalOilWeight * conversionFactor; // Convert to oz
+
     const recipe = [];
     let totalLye = 0;
 
+    // Process each oil
     oils.forEach(oil => {
         const sap = sapValues[oil.oilName]?.NaOH || 0;
-        const oilWeight = (oil.percentage / 100) * totalOilWeight;
+        const oilWeight = (oil.percentage / 100) * totalOilWeightInOz;
         const lye = oilWeight * sap;
 
         totalLye += lye;
@@ -300,25 +311,26 @@ function calculateRecipe({ totalOilWeight, superFat, unit, oils }) {
             oilName: oil.oilName,
             weight: oilWeight.toFixed(2),
             lye: lye.toFixed(2),
+            percentage: oil.percentage.toFixed(2),
         });
     });
 
-    totalLye = totalLye - (totalLye * (superFat / 100));
-    const water = (totalOilWeight * 0.38).toFixed(2);
+    totalLye = totalLye - (totalLye * (superFat / 100)); // Adjust lye for superfat
+    const water = (totalOilWeightInOz * 0.38).toFixed(2); // Default water ratio
 
     console.log('Calculated recipe:', { recipe, totalLye, water });
     return { recipe, totalLye, water };
 }
 
+
 function displayStaticRecipe({ recipe, totalLye, water }) {
     const staticRecipeContent = document.querySelector('#static-recipe-content');
     const staticRecipeView = document.querySelector('#static-recipe-view');
-    
 
     let recipeHTML = "<ul>";
 
     recipe.forEach(item => {
-        recipeHTML += `<li>${item.oilName}: ${item.weight} (${item.lye} lye</li>`;
+        recipeHTML += `<li>${item.oilName}: ${item.percentage} ${item.weight} (${item.lye} oz lye</li>`;
     });
 
     recipeHTML += `<li>Total Lye: ${totalLye.toFixed(2)} </li>`;
