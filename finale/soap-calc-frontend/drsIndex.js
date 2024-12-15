@@ -219,62 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //other listener
     searchIcon.addEventListener('click', toggleSearchBar);
 
-    // //add event listener for buttons
-    // const addOilButton = document.querySelector('#add-oil');
-    // if (addOilButton) {
-    //     addOilButton.addEventListener('click', () => {
-    //         addEntry('base-oil', 'selected-oils', 'fatsNoils');
-    //     });
-    // }
-    // //event listener for searchbar and icon
-    // const searchIcon = document.querySelector('.search-icon');
-    // const searchBar = document.querySelector('.search-bar');
-
     //make searchbar visible on icon click
     searchIcon.addEventListener('click', toggleSearchBar);
     //perform search on enter key
     searchBar.addEventListener('keypress', handleSearchOnEnter);
-
-
-    // const addAdditiveButton = document.querySelector('#add-additive');
-    // if (addAdditiveButton) {
-    //     addAdditiveButton.addEventListener('click', () => {
-    //         addEntry('additive', 'selected-additives', 'choose-additives');
-    //     });
-    // }
-
-    // //add event listener for clear field button
-    // const clearFieldButton = document.querySelector('#clear-field');
-    // if (clearFieldButton) {
-    //     clearFieldButton.addEventListener('click', () => {
-    //         document.querySelector('#selected-oils').innerHTML = '';
-    //         document.querySelector('#selected-additives').innerHTML = '';
-    //     });
-    // }
-
-    // //add event listener for reset recipe button
-    // const resetRecipeButton = document.querySelector('#reset-recipe');
-    // if (resetRecipeButton) {
-    //     resetRecipeButton.addEventListener('click', () => {
-    //         //reset containers and dropdowns
-    //         document.querySelector('#selected-oils').innerHTML = '';
-    //         document.querySelector('#selected-additives').innerHTML = '';
-    //         document.querySelector('#base-oil').value = 'fatsNoils';
-    //         document.querySelector('#additive').value = 'choose-additives';
-    //         document.querySelector('#unit-of-measurement').value = 'unit-of-measurement';
-    //         document.querySelector('#lye-type').value = 'lye-type';
-    //         //clear input fields
-    //         document.querySelector('#super-fat').value = '';
-    //         document.querySelector('#total-oil-weight').value = '';
-    //         document.querySelector('#water').value = '';
-    //         //hide buttons and borders
-    //         document.querySelector('#clear-field').style.display = 'none';
-    //         document.querySelector('#calculate-recipe').style.display = 'none';
-    //         document.querySelector('#selected-oils').style.border = 'none';
-    //         document.querySelector('#selected-additives').style.border = 'none';
-    //     });
-    // }
-
-    // for soap calc page
 
 });

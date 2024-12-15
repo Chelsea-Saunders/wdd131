@@ -62,7 +62,6 @@
                             <label for="unit-of-measurement">Unit of Measurement</label>
                             <select id="unit-of-measurement" name="unit-of-measurement">
                                 <option value="unit-of-measurement">Choose One</option>
-                                <option value="lbs">lbs(pounds)</option>
                                 <option value="oz">oz (ounces)</option>
                                 <option value="g">g (grams)</option>
                             </select>
@@ -169,7 +168,6 @@
                                 <option value="wheat-germ-oil">Wheat Germ Oil</option>
                             </select>
                             <button type="button" id="add-oil">Add Oil</button>
-                            <button type="button" id="clear-oils">Clear All Oils</button>
 
                         </div>
                         <div class="additive">
@@ -188,7 +186,6 @@
                 </div>
                 <!-- right column -->
                 <section class="add-oils">
-                    <div id="error-message" style="color: red; display: none;"></div>
                     <div id="selected-oils">
                         <h3>Selected Oils</h3>
                         <!-- Dynamically added oils will appear here -->
@@ -198,13 +195,17 @@
                         <!-- Dynamically added additives will appear here -->
                     </div>                    
                     <div class="bottom-buttons">
-                        <button type="button" id="clear-field" class="clear-field" aria-label="clears oils field">Clear Field</button>
-                    <button type="button" id="calculate-recipe" class="calculate-recipe" aria-label="calculates soap recipe">Calculate Recipe</button>
+                        <button type="button" id="clear-field" class="clear-field" aria-label="clears oils input field">Clear Field</button>
+                        <button type="button" id="calculate-recipe" class="calculate-recipe" aria-label="calculates soap recipe">Calculate Recipe</button>
                     </div>
-                    <div id="recipe-output" class="recipe-output" style="display: none;">
+                    <div id="static-recipe-view" class="static-recipe-view" style="display: none;">
                         <h2>Recipe</h2>
-                        <ul id="recipe-list"></ul>
-                    </div>                    
+                        <div id="static-recipe-content">
+                            <!-- recipe content will be loaded here -->
+                        </div>
+                        <button id="close-recipe">X</button>
+                    </div>   
+                    <button id="view-recipe" type="button">View Recipe</button>                 
                 </section>
                 
             </fieldset>
