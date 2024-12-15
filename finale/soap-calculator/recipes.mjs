@@ -39,7 +39,7 @@ export const recipes = [
         ],
         description: "Good and mild for hand washing. Can also be used as foaming hand wash when you add 30-50% soap base and the remaining as water.",
         notes: "Make sure in liquid soap you don't use more than 3% superfat. You want a little but to much will make for fat to form on the top of the bottle. I suggest 1-3% tops.",
-        image: { src: './images/hand-soap.jpg', alt: "Hand soap in a pump bottle"}
+        image: { src: './images/hand-soap.jpeg', alt: "Hand soap in a pump bottle"}
     },
     {
         recipeName: 'Carrot Soap',
@@ -114,7 +114,7 @@ export const recipes = [
         ],
         description: "You're going to love this mild bar. It will leave your skin feeling rejuvinated and loved!",
         notes: "I switched out the water for cooled Green Tea. Add the essential oils before trace. It sets up fast so stir with a spoon don't use a immersion blender.Divided the soap at trace and added the clays and activated charcoal which color and then swirl or layer them in",
-        image: { src: './images/charcoal-rose.jpeg', alt: "pink, green, white and black facial soap"}
+        image: { src: './images/clay-soap.jpg', alt: "pink, green, white and black facial soap"}
     }
 ];
 

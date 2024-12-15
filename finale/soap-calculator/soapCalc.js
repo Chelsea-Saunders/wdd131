@@ -342,5 +342,3 @@ function displayStaticRecipe({ recipe, totalLye, water }) {
     staticRecipeView.classList.add('active');
     staticRecipeView.style.display = 'block';
 }
-
-
