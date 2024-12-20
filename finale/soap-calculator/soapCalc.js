@@ -1,6 +1,6 @@
 
 //DOM:
-
+let calculateRecipeData = null;
 document.addEventListener('DOMContentLoaded', () => {
     const addAdditiveButton = document.querySelector('#add-additive');
     const resetRecipeButton = document.querySelector('#reset-recipe');
@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewRecipeButton = document.querySelector('#view-recipe');
     const staticRecipeView = document.querySelector('#static-recipe-content');
     const staticRecipeContent = document.querySelector('#static-recipe-content');
-    const closeRecipeButton = document.querySelector('#close-static-recipe');
+    const closeRecipe = document.querySelector('#close-static-recipe');
     const additiveDropdown = document.querySelector('#additive');
     const selectedAdditivesContainer = document.querySelector('#selected-additives');
     const clearFieldButton = document.querySelector('#clear-field');
 
     if (clearFieldButton) {
-        clearFieldButton.addEventListener('clicl', () => {
+        clearFieldButton.addEventListener('click', () => {
             const oilsContainer = document.querySelector('#selected-oils');
             const additivesContainer = document.querySelector('#selected-additives');
 
@@ -54,6 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    if (staticRecipeView) {
+        staticRecipeView.style.display = 'none';
+    }
+
+    //calculate recipe button
+    if (calculateButton) {
+        calculateButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            const formValues = getFormValues();
+            if (formValues) {
+                const calculatedRecipe = calculateRecipe(formValues);
+                if (calculatedRecipe) {
+                    calculateRecipeData = calculatedRecipe;
+                    displayStaticRecipe(calculatedRecipe);
+                }
+            }
+        });
+    }
+
     if (clearFieldButton) {
         clearFieldButton.addEventListener('click', () => {
             document.querySelector('#selected-oils').innerHTML = '';
@@ -82,57 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    if (staticRecipeView) {
-        staticRecipeView.style.display = 'none';
-    }
-
-    //calculate recipe button
-    if (calculateButton) {
-        calculateButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            const formValues = getFormValues();
-            if (formValues) {
-                const calculatedRecipe = calculateRecipe(formValues);
-                if (calculatedRecipe) {
-                    displayStaticRecipe(calculatedRecipe);
-                }
-            }
-        });
-    }
-    if (viewRecipeButton) {
-        viewRecipeButton.addEventListener('click', (event) => {
-            event.preventDefault();
-    
-            // Example hard-coded recipe
-            const recipeHTML = `
-                <ul>
-                    <li>Oil A: 50% (5 oz)</li>
-                    <li>Oil B: 50% (5 oz)</li>
-                    <li>Total Lye: 1.5 oz</li>
-                    <li>Water: 6 oz</li>
-                </ul>
-            `;
-    
-            staticRecipeContent.innerHTML = recipeHTML; // Insert hard-coded recipe
-            staticRecipeView.style.display = 'block';   // Show the recipe view
+    if (closeRecipe) {
+        closeRecipe.addEventListener("click", () => {
+            const staticRecipeView = document.querySelector("#static-recipe-view");
+            if (staticRecipeView) staticRecipeView.style.display = "none"; // Fixed typo
         });
     }
     
     
-    if (closeRecipeButton) {
-        closeRecipeButton.addEventListener("click", () => {
-            staticRecipeView.style.display = "none";
-        });
-    }
-
-    // if (closeRecipeButton) {
-    //     closeRecipeButton.addEventListener('click', (event) => {
-    //         event.preventDefault();
-    //         console.log('Close Recipe button clicked');
-    //         staticRecipeContent.classList.remove('active');
-    //         staticRecipeContent.style.display = 'none';
-    //     });
-    // }
 }); 
 
 const sapValues = {
@@ -324,21 +300,34 @@ function calculateRecipe({ totalOilWeight, superFat, unit, oils }) {
 
 
 function displayStaticRecipe({ recipe, totalLye, water }) {
+    console.log('displayStaticRecipe called with:', { recipe, totalLye, water });
+
     const staticRecipeContent = document.querySelector('#static-recipe-content');
     const staticRecipeView = document.querySelector('#static-recipe-view');
+
+    if (!staticRecipeContent || !staticRecipeView) {
+        console.error('Static recipe elements not found in the DOM');
+        return;
+    }
 
     let recipeHTML = "<ul>";
 
     recipe.forEach(item => {
-        recipeHTML += `<li>${item.oilName}: ${item.percentage} ${item.weight} (${item.lye} oz lye</li>`;
+        recipeHTML += `<li>${item.oilName}: ${item.percentage}% (${item.weight} oz)</li>`;
     });
 
-    recipeHTML += `<li>Total Lye: ${totalLye.toFixed(2)} </li>`;
+    recipeHTML += `<li>Total Lye: ${totalLye.toFixed(2)} oz</li>`;
     recipeHTML += `<li>Water: ${water} oz</li>`;
     recipeHTML += "</ul>";
 
-    staticRecipeContent.innerHTML = recipeHTML;
+    console.log('Generated recipe HTML:', recipeHTML);
+    console.log('staticRecipeContent innerHTML before update:', staticRecipeContent.innerHTML);
 
-    staticRecipeView.classList.add('active');
-    staticRecipeView.style.display = 'block';
+    staticRecipeContent.innerHTML = recipeHTML; // Update the content
+
+    console.log('staticRecipeContent innerHTML after update:', staticRecipeContent.innerHTML);
+
+    staticRecipeView.style.display = 'block';  // Make it visible
+    console.log('Recipe displayed successfully');
 }
+

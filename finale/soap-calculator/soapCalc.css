@@ -399,6 +399,13 @@ footer {
     background-color: #f9f9f9;
     max-width: 500px;
 }
+#static-recipe-view.active {
+    display: block !important;
+}
+#static-recipe-content {
+    display: block !important;
+    color: inherit;
+}
 
 #static-recipe-content ul {
     list-style-type: none;
